@@ -11,10 +11,10 @@ echo"<br>";
 $hash=$cap;
 $title=urlencode('Informe de violación de velocidad');
 $trackers=10177116;
-$from=urlencode('2023-01-10 00:00:00');
+$from=urlencode('2023-01-01 00:00:00');
 $to=urlencode('2023-01-10 23:59:59');
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
-$plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":27,"show_seconds":false,"min_duration_minutes":0,"max_speed":50,"group_by_driver":false,"filter":true}');
+$plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":27,"show_seconds":false,"min_duration_minutes":1,"max_speed":50,"group_by_driver":false,"filter":true}');
 
 $cadena='hash='.$cap.'&title='.$title.'&trackers=%5B'.$trackers.'%5D&from='.$from.'&to='.$to.'&time_filter='.$time_filter.'&plugin='.$plugin;
 

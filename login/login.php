@@ -30,7 +30,7 @@ $response = curl_exec($curl);
 
 $json=json_decode($response);
 $cap= $json->hash;
-echo $cap;
+//echo $cap;
 
  curl_close($curl);
  ?>
