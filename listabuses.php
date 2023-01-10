@@ -1,5 +1,6 @@
 <?php
 include "login/login.php";
+include "login/conexion.php";
 
 
 
@@ -14,7 +15,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'{"hash":"'.$cap.'"}',
+  CURLOPT_POSTFIELDS => '{"hash":"' . $cap . '"}',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json, text/plain, */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
@@ -45,7 +46,7 @@ $patente9 = $response3[385];
 $patente10 = $response3[427];
 
 
-// echo "<br>". $patente1 . "&nbsp;". $patente2 ."&nbsp;". $patente3 . " &nbsp;". $patente4 ."&nbsp;". $patente5 . " &nbsp;". $patente6 ."&nbsp;".$patente7 . "&nbsp; ". $patente8 ."&nbsp;". $patente9 . "&nbsp; ". $patente10 . "&nbsp;". "<br>";
+//echo "<br>". $patente1 . "&nbsp;". $patente2 ."&nbsp;". $patente3 . " &nbsp;". $patente4 ."&nbsp;". $patente5 . " &nbsp;". $patente6 ."&nbsp;".$patente7 . "&nbsp; ". $patente8 ."&nbsp;". $patente9 . "&nbsp; ". $patente10 . "&nbsp;". "<br>";
 
 
 //$response2= json_decode($response2);
@@ -66,7 +67,7 @@ curl_setopt_array($lruc, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'{"hash":"'.$cap.'"}',
+  CURLOPT_POSTFIELDS => '{"hash":"' . $cap . '"}',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json, text/plain, */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
@@ -83,98 +84,177 @@ $response = curl_exec($lruc);
 
 curl_close($lruc);
 
-$json=json_decode($response);
+$json = json_decode($response);
 
-$array=$json->list;
+$array = $json->list;
 
-foreach ($array as $item){
-echo "<br>";
-  echo $id= $item->id;
+foreach ($array as $item) {
+  echo "<br>";
+  echo $id = $item->id;
 
 
 
-$curl = curl_init();
+  $curl = curl_init();
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => 'http://www.trackermasgps.com/api-v2/tracker/get_state',
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'{"hash": "'.$cap.'", "tracker_id": '.$id.'}',
-  CURLOPT_HTTPHEADER => array(
-    'Content-Type: application/json'
-  ),
-));
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://www.trackermasgps.com/api-v2/tracker/get_state',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => '{"hash": "' . $cap . '", "tracker_id": ' . $id . '}',
+    CURLOPT_HTTPHEADER => array(
+      'Content-Type: application/json'
+    ),
+  ));
 
-$response1 = curl_exec($curl);
+  $response1 = curl_exec($curl);
 
-$response1= json_decode($response1);
+  $response1 = json_decode($response1);
 
-curl_close($curl);
+  curl_close($curl);
 
-//$.state.gps.location.lat
+  //$.state.gps.location.lat
 
-echo $response1->state->gps->location->lat." , &nbsp;";
-echo $lng= $response1->state->gps->location->lng." , &nbsp;";
-echo $response1->state->last_update." , &nbsp";
+  echo $lat = $response1->state->gps->location->lat . " , &nbsp;";
+  echo $lng = $response1->state->gps->location->lng . " , &nbsp;";
+  echo $last_u = $response1->state->last_update . " , &nbsp";
 
-if ($id == 10177116){
+  if ($id == 10177116) {
 
-  echo $patente1; 
+    echo $patente1;
+
+    $sql = "INSERT INTO estadisticas(id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente1')";
+
+
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177117) {
+    echo $patente2;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente2')";
+
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177118) {
+    echo $patente3;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente3')";
+
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177119) {
+    echo $patente4;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente4')";
+
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177120) {
+    echo $patente5;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente5')";
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177121) {
+    echo $patente6;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente6')";
+
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177122) {
+    echo $patente7;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente7')";
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177123) {
+    echo $patente8;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente8')";
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177124) {
+    echo $patente9;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente9')";
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+  if ($id == 10177125) {
+    echo $patente10;
+
+    $sql = "INSERT INTO estadisticas (id_tracker,latitud,longitud,last_update,patente) VALUES ('$id', '$lat', '$lng', '$last_u', '$patente10')";
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM estadisticas WHERE last_update= '$last_u' ");
+
+    if (mysqli_num_rows($datosduplicados) > 0) {
+    } else {
+      $ejecutar = mysqli_query($mysqli, $sql);
+    }
+  }
+
+
+
+  // echo $response2->list[1]->label;
+
+
 
 
 }
-
-if ($id == 10177117){
-  echo $patente2;
-}
-
-if ($id == 10177118){
-  echo $patente3;
-}
-
-if ($id == 10177119){
-  echo $patente4;
-}
-
-if($id == 10177120){
-  echo $patente5;
-}
-
-if ($id == 10177121){
-  echo $patente6;
-}
-
-if ($id == 10177122){
-  echo $patente7;
-}
-
-if($id == 10177123){
-  echo $patente8;
-}
-
-if ($id == 10177124){
-  echo $patente9;
-
-}
-
-if ($id == 10177125){
-  echo $patente10;
-}
-
-
-
-// echo $response2->list[1]->label;
-
-
-
-
-}
-
-
-
-?>
