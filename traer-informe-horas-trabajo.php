@@ -46,9 +46,8 @@ echo "<br>";
 echo  $horas->report->sheets[0]->sections[0]->values[1]->title ;
 echo "<br>";
 echo  $horas->report->sheets[0]->sections[0]->values[2]->title ;
-echo "<br>";
 
-//echo $horas
+
 
 
 
