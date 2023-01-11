@@ -10,7 +10,7 @@ echo"<br>";
 
 $hash=$cap;
 $title=urlencode('Informe de horas de motor');
-$trackers=10177116;
+$trackers='10177116,10177117,10177118';
 $from=urlencode('2023-01-03 00:00:00');
 $to=urlencode('2023-01-03 23:59:59');
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');

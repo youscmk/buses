@@ -39,17 +39,17 @@ $response = curl_exec($curl);
 curl_close($curl);
 $horas=json_decode($response);
 
-//$.report.sheets[0].sections[0].values
+$buses=$horas->report->sheets[0]->sections[0]->data[0]->rows;
 
-echo  $movimiento=$horas->report->sheets[0]->sections[0]->values[0]->title ;
+foreach ($buses as $items){
+
 echo "<br>";
-echo  $ralenti=$horas->report->sheets[0]->sections[0]->values[1]->title ;
-echo "<br>";
-echo  $horas->report->sheets[0]->sections[0]->values[2]->title ;
-echo "<br>";
-
-
-
+echo $items->tracker->v.'/' ;
+echo $items->duration->v.'/';
+echo $items->idle->v.'/';
+echo $items->in_movement->v.'/';
+  
+}
 
 
 ?>
