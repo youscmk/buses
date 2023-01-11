@@ -64,24 +64,11 @@ foreach ($array as $item) {
 
   curl_close($curl);
 
-  $json2 = json_decode($response2);
-  //$.state.gps.location.lat
-  echo " , &nbsp";
+    $json2=json_decode($response2);
 
-  echo $lat = $array2 = $json2->state->gps->location->lat;
-  echo " , &nbsp";
+    //$.state.gps.location.lat
 
-  echo $lng = $array2 = $json2->state->gps->location->lng;
-  echo " , &nbsp";
-
-  echo $last_u = $array2 = $json2->state->last_update;
-  echo " , &nbsp";
-
-  echo $plate = $item->label;
-  echo " , &nbsp";
-
-
-  $curl = curl_init();
+    echo "<br>";
 
   curl_setopt_array($curl, array(
     CURLOPT_URL => 'http://www.trackermasgps.com/api-v2/geocoder/search_location',
@@ -114,8 +101,8 @@ foreach ($array as $item) {
 
   $sql = "INSERT INTO LPF (id_tracker,latitud,longitud,last_update,patente,direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$array4')";
 
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE last_update= '$last_u' ");
-
+   echo $lng= $array2=$json2->state->last_update ;
+    
 
 
   if (mysqli_num_rows($datosduplicados) > 0) {
