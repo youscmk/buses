@@ -41,11 +41,11 @@ $horas=json_decode($response);
 
 //$.report.sheets[0].sections[0].values
 
-echo  $horas->report->sheets[0]->sections[0]->values[0]->title ;
+echo  $movimiento=$horas->report->sheets[0]->sections[0]->values[0]->title ;
 echo "<br>";
-echo  $horas->report->sheets[0]->sections[0]->values[1]->title ;
+echo  $ralenti=$horas->report->sheets[0]->sections[0]->values[1]->title ;
 echo "<br>";
-echo  $horas->report->sheets[0]->sections[0]->values[2]->title ;
+echo  $apagado=$horas->report->sheets[0]->sections[0]->values[2]->title ;
 echo "<br>";
 
 //echo $horas
