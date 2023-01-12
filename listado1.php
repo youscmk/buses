@@ -3,6 +3,7 @@ include "login/login.php";
 
 
 //header("refresh:2");
+$listado='';
 
 $curl = curl_init();
 
@@ -114,6 +115,10 @@ $direccion=$array3->value;
 
 echo "<br>";    
 echo $direccion;
+echo "<br>"; 
 
+  $listado=$listado.','.$id ;
   
 }
+echo"<br>";
+echo $listado;

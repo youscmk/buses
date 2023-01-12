@@ -4,6 +4,7 @@ include "./login/login.php";
 
 include "./horas_trabajo.php";
 
+
 $json=json_decode($informe);
 
 $id_informe=$json->id;
@@ -44,10 +45,10 @@ $buses=$horas->report->sheets[0]->sections[0]->data[0]->rows;
 foreach ($buses as $items){
 
 echo "<br>";
-echo $items->tracker->v.'/' ;
-echo $items->duration->v.'/';
-echo $items->idle->v.'/';
-echo $items->in_movement->v.'/';
+echo $plate=$items->tracker->v.' / ' ;
+echo $total_horas=$items->duration->v.' / ';
+echo $ralenti=$items->idle->v.' / ';
+echo $en_movimiento=$items->in_movement->v.' / ';
   
 }
 
