@@ -115,9 +115,14 @@ foreach ($array as $item) {
 
   $sql = "INSERT INTO LPF (id_tracker,latitud,longitud,last_update,patente,direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$array4')";
 
+  
+
   $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE last_update= '$last_u' ");
 
-
+  if (mysqli_num_rows($datosduplicados) > 0) {
+  } else {
+    $ejecutar = mysqli_query($mysqli, $sql);
+  }
 
   
 }

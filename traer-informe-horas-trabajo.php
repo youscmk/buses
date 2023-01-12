@@ -5,6 +5,8 @@ include "./login/login.php";
 include "./horas_trabajo.php";
 
 
+
+
 $json=json_decode($informe);
 
 $id_informe=$json->id;

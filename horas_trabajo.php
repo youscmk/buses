@@ -3,14 +3,16 @@
 include "./login/login.php";
 echo"<br>";
 
-include "./listado1.php";
+include "./listadoBusesHorasMotor.php";
 // genera informe
+
+// $iiiiii= 10177116 .",". 10177117 .",". 10177118 .",". 10177119 .",". 10177120 . "," . 10177121 . "," . 10177122 .",". 10177123;
 
 
 
 $hash=$cap;
 $title=urlencode('Informe de horas de motor');
-$trackers=urlencode('[10177116,10177117,10177118,10177119,10177120]');
+$trackers=urlencode('['.$tracketeando.']');
 $from=urlencode('2023-01-03 00:00:00');
 $to=urlencode('2023-01-03 23:59:59');
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
