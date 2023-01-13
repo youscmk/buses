@@ -54,7 +54,7 @@ echo $plate=$items->tracker->v.' / ' ;
 echo $total_horas=$items->duration->v.' / ';
 echo $ralenti=$items->idle->v.' / ';
 echo $en_movimiento=$items->in_movement->v.' / ';
-echo $fecha_reporte=$items->created.' / ';
+//echo $fecha_reporte=$items->created.' / ';
 
   
 }
