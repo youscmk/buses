@@ -124,22 +124,6 @@ echo "<br>";
 
 
 
-// $response4 = preg_split("/\,/", $buses);
-// // print_r($response4);
- 
-// $id_tracker1= $response4[1];
-// $id_tracker2= $response4[2];
-// $id_tracker3= $response4[3];
-// $id_tracker4= $response4[4];
-// $id_tracker5= $response4[5];
-// $id_tracker6= $response4[6];
-// $id_tracker7= $response4[7];
-// $id_tracker8= $response4[8];
-
-// echo "<br>". $id_tracker1. "&nbsp;".$id_tracker2. "&nbsp;".$id_tracker3. "&nbsp;".$id_tracker4. "&nbsp;".$id_tracker5. "&nbsp;".$id_tracker6. "&nbsp;".$id_tracker7. "&nbsp;".$id_tracker8;
-
-// $tracketeando = $id_tracker1 .",". $id_tracker2 .",". $id_tracker3 .",". $id_tracker4 .",". $id_tracker5 .",". $id_tracker6 .",". $id_tracker7 .",". $id_tracker8;
-// //echo $buses= substr($buses, 0, -1); 
 
 echo $buses;
 echo "<br>";
