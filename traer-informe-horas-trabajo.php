@@ -37,12 +37,15 @@ curl_setopt_array($curl, array(
   ),
 ));
 
-$response = curl_exec($curl);
+echo "<br>";
+echo $response7 = curl_exec($curl);
 
-curl_close($curl);
-$horas=json_decode($response);
+
+$horas=json_decode($response7);
 
 $buses=$horas->report->sheets[0]->sections[0]->data[0]->rows;
+
+
 
 foreach ($buses as $items){
 
@@ -54,5 +57,6 @@ echo $en_movimiento=$items->in_movement->v.' / ';
   
 }
 
+curl_close($curl);
 
 ?>
