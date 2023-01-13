@@ -12,7 +12,7 @@ include "./listadoBusesHorasMotor.php";
 
 $hash=$cap;
 $title=urlencode('Informe de horas de motor');
-$trackers=urlencode('['.$tracketeando.']');
+$trackers=urlencode('['.$buses.']');
 $from=urlencode('2023-01-03 00:00:00');
 $to=urlencode('2023-01-03 23:59:59');
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
@@ -57,7 +57,7 @@ curl_setopt_array($curl, array(
 $informe = curl_exec($curl);
 
 curl_close($curl);
-//echo $informe;
+echo $informe;
 
 
 ?>
