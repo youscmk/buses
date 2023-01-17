@@ -4,12 +4,13 @@ include "login/login.php";
 
 include "horas_trabajo.php";
 
+include "./login/conexion.php";
+
 
 
 $json=json_decode($informe);
 
 $id_informe=$json->id;
-
 
 
 $curl = curl_init();
@@ -37,11 +38,12 @@ curl_setopt_array($curl, array(
 ));
 
 echo "<br>";
-echo $response7 = curl_exec($curl);
+$response7 = curl_exec($curl);
 
 $response4= preg_split("/\"/", $response7);
 
 $men= $response4[7];
+
 
 if($men=="Requested data is not ready yet"){
 
@@ -59,9 +61,7 @@ if($men=="Requested data is not ready yet"){
   //se me entiende?
 
   //ahora un detalle el clone no me captura el $variablex
-
-
-}
+} 
 
 $horas=json_decode($response7);
 
@@ -72,13 +72,16 @@ $buses=$horas->report->sheets[0]->sections[0]->data[0]->rows;
 foreach ($buses as $items){
 
 echo "<br>";
-
+$id_r= '';
 echo $plate=$items->tracker->v.' / ' ;
 echo $total_horas=$items->duration->v.' / ';
 echo $ralenti=$items->idle->v.' / ';
 echo $en_movimiento=$items->in_movement->v.' / ';
-//  echo $fecha= $fecha_reporte->report->created.' / ';
+echo $fecha= $fecha_reporte->report->created.' / ';
 
+$sql= "INSERT INTO reporte_ralenti (id_r, patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$id_r', '$plate', '$total_horas', '$ralenti', '$en_movimiento', NULL)";
+
+$ejecutar = mysqli_query($mysqli, $sql);
   
 }
 
