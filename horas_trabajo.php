@@ -19,7 +19,6 @@ date_default_timezone_set("America/Santiago");
 
 $variableanterio = date("Y-m-d", strtotime('-1 day', time()));
 
-// le resto 3 dias al dia de hoy, es decir pasamo de 18 a 15;
 
 echo $variableanterio;
 
@@ -29,8 +28,6 @@ $from=urlencode(''.$variableanterio.' 00:00:00');
 
 $to=urlencode(''.$variableanterio.' 23:59:59');
 
-//Lo que quiero decir aqui, aqui podemos poner 2020-10-12 y me traera el informe de esa fecha pero lo que subimos a la bd es la variable del dia de ayer que creamos en el php
-//traer-informe.php pero al final esta bien porque la app su finalidad es solo capturar informes del dia anterior asi que crear 2 veces la misma variable en 2 php distinto no provoca nada.
 
 
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
