@@ -5,7 +5,7 @@ include "login/conexion.php";
 
 
 //header("refresh:2");
-$buses='';
+$buses = '';
 
 $curl = curl_init();
 
@@ -114,10 +114,10 @@ foreach ($array as $item) {
   $direccion = $json1->value;
   echo $direccion;
 
-  $buses=$buses.$id.',';
+  $buses = $buses . $id . ',';
   echo "<br>";
   //echo $buses ;
-  
+
 }
 
 echo "<br>";
@@ -127,4 +127,4 @@ echo "<br>";
 
 echo $buses;
 echo "<br>";
-echo $buses= substr($buses, 0, -1); 
+echo $buses = substr($buses, 0, -1);

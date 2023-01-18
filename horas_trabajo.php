@@ -58,6 +58,3 @@ $informe = curl_exec($curl);
 
 curl_close($curl);
 echo $informe;
-
-
-?>
