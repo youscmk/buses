@@ -1,7 +1,7 @@
   <?php
   include "login/login.php";
   include "login/conexion.php";
-
+//
   header("refresh:2");
 
   $curl = curl_init();
