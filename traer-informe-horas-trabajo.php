@@ -8,9 +8,9 @@ include "./login/conexion.php";
 
 
 
-$json=json_decode($informe);
+$json = json_decode($informe);
 
-$id_informe=$json->id;
+$id_informe = $json->id;
 
 
 $curl = curl_init();
@@ -24,7 +24,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'hash='.$cap.'&report_id='.$id_informe,
+  CURLOPT_POSTFIELDS => 'hash=' . $cap . '&report_id=' . $id_informe,
   CURLOPT_HTTPHEADER => array(
     'Accept: */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
@@ -40,19 +40,19 @@ curl_setopt_array($curl, array(
 echo "<br>";
 $response7 = curl_exec($curl);
 
-$response4= preg_split("/\"/", $response7);
+$response4 = preg_split("/\"/", $response7);
 
-$men= $response4[7];
+$men = $response4[7];
 
 
-if($men=="Requested data is not ready yet"){
+if ($men == "Requested data is not ready yet") {
 
-  
-  $variablex= $id_informe;
 
-  header("location:clone.php?variablex=".$id_informe);
+  $variablex = $id_informe;
 
- // aqui se se suponeuq enviamos la variable $variablex al php clone
+  header("location:clone.php?variablex=" . $id_informe);
+
+  // aqui se se suponeuq enviamos la variable $variablex al php clone
   // en caso de que falle, reenviamos el mismo id_informe al clone para que pueda leer el informe de ese id, porque el tema
   //es que si hacemos un refresh en este php el id_informe aumenta osea pasamos de 1 a 2 y hacerlo recargar no va a hacer que funcione
 
@@ -61,30 +61,37 @@ if($men=="Requested data is not ready yet"){
   //se me entiende?
 
   //ahora un detalle el clone no me captura el $variablex
-} 
-
-$horas=json_decode($response7);
-
-$buses=$horas->report->sheets[0]->sections[0]->data[0]->rows;
+}
 
 
 
-foreach ($buses as $items){
 
-echo "<br>";
-$id_r= '';
-echo $plate=$items->tracker->v.' / ' ;
-echo $total_horas=$items->duration->v.' / ';
-echo $ralenti=$items->idle->v.' / ';
-echo $en_movimiento=$items->in_movement->v.' / ';
-echo $fecha= $fecha_reporte->report->created.' / ';
+$horas = json_decode($response7);
 
-$sql= "INSERT INTO reporte_ralenti (id_r, patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$id_r', '$plate', '$total_horas', '$ralenti', '$en_movimiento', NULL)";
+$buses = $horas->report->sheets[0]->sections[0]->data[0]->rows;
 
-$ejecutar = mysqli_query($mysqli, $sql);
-  
+
+
+foreach ($buses as $items) {
+
+  echo "<br>";
+  $id_r = '';
+  echo $plate = $items->tracker->v . ' / ';
+  echo $total_horas = $items->duration->v . ' / ';
+  echo $ralenti = $items->idle->v . ' / ';
+  echo $en_movimiento = $items->in_movement->v . ' / ';
+
+  date_default_timezone_set("America/Santiago");
+
+  $fecha_actual = date("Y-m-d", strtotime('-1 day', time()));
+  echo $fecha_actual;
+  //$hoy = date("Y-m-d H:i:s");                   // 2001-03-10 17:16:18 (el formato DATETIME de MySQL)
+
+  //echo $fecha= $fecha_reporte->report->created.' / ';
+
+  $sql = "INSERT INTO reporte_ralenti (id_r, patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$id_r', '$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_actual')";
+
+  $ejecutar = mysqli_query($mysqli, $sql);
 }
 
 curl_close($curl);
-
-?>
