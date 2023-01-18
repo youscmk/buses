@@ -11,8 +11,22 @@ echo"<br>";
 $hash=$cap;
 $title=urlencode('Informe de violación de velocidad');
 $trackers=10177116;
-$from=urlencode('2023-01-03 00:00:00');
-$to=urlencode('2023-01-03 23:59:59');
+
+
+
+date_default_timezone_set("America/Santiago");
+
+$DuaAyer = date("Y-m-d", strtotime('-1 day', time()));
+
+
+
+//Esta variable creada es para que ESTE UNICO PHP capture el dia anterior y al mismo tiempo genere el informe de ese dia en especifico
+
+$from=urlencode(''.$DuaAyer.' 00:00:00');
+
+$to=urlencode(''.$DuaAyer.' 23:59:59');
+
+
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
 $plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":27,"show_seconds":false,"min_duration_minutes":1,"max_speed":50,"group_by_driver":false,"filter":true}');
 
@@ -53,3 +67,6 @@ $informe = curl_exec($curl);
 
 curl_close($curl);
 //echo $informe;
+
+
+?>

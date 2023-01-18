@@ -10,11 +10,29 @@ include "./listadoBusesHorasMotor.php";
 
 
 
+
 $hash=$cap;
 $title=urlencode('Informe de horas de motor');
 $trackers=urlencode('['.$buses.']');
-$from=urlencode('2023-01-03 00:00:00');
-$to=urlencode('2023-01-03 23:59:59');
+
+date_default_timezone_set("America/Santiago");
+
+$variableanterio = date("Y-m-d", strtotime('-1 day', time()));
+
+// le resto 3 dias al dia de hoy, es decir pasamo de 18 a 15;
+
+echo $variableanterio;
+
+//Esta variable creada es para que ESTE UNICO PHP capture el dia anterior y al mismo tiempo genere el informe de ese dia en especifico
+
+$from=urlencode(''.$variableanterio.' 00:00:00');
+
+$to=urlencode(''.$variableanterio.' 23:59:59');
+
+//Lo que quiero decir aqui, aqui podemos poner 2020-10-12 y me traera el informe de esa fecha pero lo que subimos a la bd es la variable del dia de ayer que creamos en el php
+//traer-informe.php pero al final esta bien porque la app su finalidad es solo capturar informes del dia anterior asi que crear 2 veces la misma variable en 2 php distinto no provoca nada.
+
+
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
 $plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":7,"show_seconds":false,"show_detailed":false,"include_summary_sheet_only":false,"filter":true}');
 
@@ -57,4 +75,10 @@ curl_setopt_array($curl, array(
 $informe = curl_exec($curl);
 
 curl_close($curl);
+
+//Todos lo que hacemos arriba es para crear esta variable 
+
 echo $informe;
+
+
+?>

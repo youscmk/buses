@@ -45,14 +45,13 @@ $response2 = preg_split("/\,/", $response);
 
 //print_r($response2);
 $fecha_r = $response2[0];
-$response11 = preg_split("/\"/", $fecha_r);
+//$response11 = preg_split("/\"/", $fecha_r);
 //print_r($response11);
-$fechaf_reporte = $response11[5];
+//$fechaf_reporte = $response11[5];
 echo "<br>";
 echo "<b>Fecha Creación Reporte</b><br>";
-
 date_default_timezone_set("America/Santiago");
-echo $fechaf_reporte = date("Y-m-d H:i:s", strtotime('-1 day', time()));
+echo $fecha_r = date("Y-m-d H:i:s", strtotime('-1 day', time()));
 
 
 
@@ -116,7 +115,6 @@ if($men=="Requested data is not ready yet"){
   // por ello queria hacer esto, reenviamos el primer id que usamos y en caso de fallar capturar este mismo id y reenviarlo al clone para que si lo haga funcionar
 
   //se me entiende?
-
   //ahora un detalle el clone no me captura el $variablex
 } 
 
@@ -136,7 +134,9 @@ foreach ($buses as $items) {
   echo $total_horas = $items->duration->v . ' / ';
   echo $ralenti = $items->idle->v . ' / ';
   echo $en_movimiento = $items->in_movement->v . ' / ';
-  echo $fechaf_reporte;
+  date_default_timezone_set("America/Santiago");
+
+  echo $fecha_ayer = date("Y-m-d", strtotime('-1 day', time()));
 
   /*date_default_timezone_set("America/Santiago");
     $fecha_actual = date("Y-m-d", strtotime('-1 day', time()));
@@ -144,9 +144,16 @@ foreach ($buses as $items) {
   //$hoy = date("Y-m-d H:i:s");                   // 2001-03-10 17:16:18 (el formato DATETIME de MySQL)
   //echo $fecha_reporte=$items->created.' / ';
 
-  $sql = "INSERT INTO reporte_ralenti (id_r, patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$id_r', '$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fechaf_reporte')";
+  $sql = "INSERT INTO reporte_ralenti (id_r, patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$id_r', '$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
+  
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE total_horas='$total_horas' AND fecha='$fecha_ayer'");
 
-  $ejecutar = mysqli_query($mysqli, $sql);
+  if (mysqli_num_rows($datosduplicados) > 0) {
+  } else {
+
+    $ejecutar = mysqli_query($mysqli, $sql);
+  }
+
 
   //ese es el insert 
 
