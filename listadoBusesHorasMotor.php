@@ -39,7 +39,7 @@ $array = $json->list;
 
 foreach ($array as $item) {
 
-  echo "<br>";
+
   echo $id = $item->id;
   echo " , &nbsp";
 
@@ -124,7 +124,5 @@ echo "<br>";
 
 
 
-
-echo $buses;
 echo "<br>";
 echo $buses = substr($buses, 0, -1);
