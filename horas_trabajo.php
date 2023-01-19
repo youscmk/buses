@@ -2,7 +2,6 @@
 
 include "./login/login.php";
 echo"<br>";
-
 include "./listadoBusesHorasMotor.php";
 // genera informe
 

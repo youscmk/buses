@@ -2,15 +2,17 @@
 
 include "login/login.php";
 
-include "horas_trabajo.php";
+include "./horas_trabajo.php";
 
-include "./login/conexion.php";
+include "login/conexion.php";
 
 
 
 $json=json_decode($informe);
 
 $id_informe=$json->id;
+
+sleep(4);
 
 echo "<br>";
 echo "<br><b>" . "  &nbsp[[ID REPORTE]]</b>";
