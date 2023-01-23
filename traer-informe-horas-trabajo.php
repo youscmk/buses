@@ -146,7 +146,7 @@ foreach ($buses as $items) {
   //$hoy = date("Y-m-d H:i:s");                   // 2001-03-10 17:16:18 (el formato DATETIME de MySQL)
   //echo $fecha_reporte=$items->created.' / ';
 
-  $sql = "INSERT INTO reporte_ralenti (patente, total_horas, ralenti, en_movimiento, fecha) VALUES ( '$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
+  $sql = "INSERT INTO reporte_ralenti (patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
   
   $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE total_horas='$total_horas' AND fecha='$fecha_ayer'");
 

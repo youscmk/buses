@@ -1,4 +1,4 @@
-  <?php
+<?php
   include "login/login.php";
   include "login/conexion.php";
 

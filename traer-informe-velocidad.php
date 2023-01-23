@@ -129,7 +129,7 @@ foreach ($id_trackers as $movil) {
       echo $lng = $element->max_speed_address->location->lng . ' / ';
       echo "<br>";
 
-      $sql = "INSERT INTO reporte_velocidad (id_v, patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$id_v', '$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc', '$lat', '$lng')";
+      $sql = "INSERT INTO reporte_velocidad (patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc', '$lat', '$lng')";
 
       $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_velocidad WHERE latitude='$lat' AND longitude='$lng' AND hora='$hora'");
 
