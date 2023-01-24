@@ -1,6 +1,6 @@
 <?php
 
-include "../login/login.php";
+include "./login/login.php";
 echo"<br>";
 
 

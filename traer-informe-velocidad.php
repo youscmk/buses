@@ -65,7 +65,6 @@ foreach ($id_trackers as $movil) {
   $id_informe = $json->id;
 
 
-  sleep(4);
 
   $curl = curl_init();
 
@@ -106,6 +105,8 @@ foreach ($id_trackers as $movil) {
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.v  (direccion)
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
+
+  
 
   if ($json2->report->sheets[0]->header <> "No hay datos") {
 

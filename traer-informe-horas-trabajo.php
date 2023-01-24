@@ -12,7 +12,6 @@ $json=json_decode($informe);
 
 $id_informe=$json->id;
 
-sleep(4);
 
 echo "<br>";
 echo "<br><b>" . "  &nbsp[[ID REPORTE]]</b>";
@@ -148,7 +147,7 @@ foreach ($buses as $items) {
 
   $sql = "INSERT INTO reporte_ralenti (patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
   
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE total_horas='$total_horas' AND fecha='$fecha_ayer'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE patente='$plate' AND total_horas='$total_horas' AND ralenti='$ralenti' AND en_movimiento='$en_movimiento'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
   } else {
