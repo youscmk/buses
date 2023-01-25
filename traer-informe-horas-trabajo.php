@@ -149,7 +149,7 @@ foreach ($buses as $items) {
 
   $sql = "INSERT INTO reporte_ralenti (patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
   
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE total_horas='$total_horas' AND ralenti='$ralenti' || en_movimiento='$en_movimiento' AND fecha='$fecha_ayer'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE fecha='$fecha_ayer' AND total_horas='$total_horas' OR ralenti='$ralenti' OR en_movimiento='$en_movimiento'");
   if (mysqli_num_rows($datosduplicados) > 0) {
   } else {
 
