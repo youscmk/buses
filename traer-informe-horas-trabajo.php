@@ -149,7 +149,7 @@ foreach ($buses as $items) {
 
   $divpatente= preg_split("/-/", $plate);
 
-  // $VarPatente= $divpatente[0];
+  $VarPatente= $divpatente[0];
   $VarId= $divpatente[1];
 
 
