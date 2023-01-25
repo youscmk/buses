@@ -101,7 +101,7 @@ $response4= preg_split("/\"/", $response7);
 
 $men= $response4[7];
 
-
+/*
 if($men=="Requested data is not ready yet"){
 
   
@@ -118,6 +118,8 @@ if($men=="Requested data is not ready yet"){
   //se me entiende?
   //ahora un detalle el clone no me captura el $variablex
 } 
+*/
+
 
 $horas=json_decode($response7);
 
@@ -147,7 +149,7 @@ foreach ($buses as $items) {
 
   $sql = "INSERT INTO reporte_ralenti (patente, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
   
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE fecha='$fecha_ayer' AND total_horas='$total_horas' AND ralenti='$ralenti' AND en_movimiento='$en_movimiento'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE fecha='$fecha_ayer' || total_horas='$total_horas' || ralenti='$ralenti' || en_movimiento='$en_movimiento'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
   } else {
