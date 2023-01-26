@@ -112,9 +112,19 @@ foreach ($array as $item) {
   $json1 = json_decode($response);
   $array4 = $json1->value;
   $direcc = $array4;
-  echo $direcc;
 
-  $sql = "INSERT INTO LPF (id_tracker,latitud,longitud,last_update,patente,direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$direcc')";
+  $direcc1 = addslashes($direcc);
+	echo $direcc1;
+  echo " , &nbsp";
+  date_default_timezone_set("America/Santiago");
+  $hoy = date("Y-m-d H:i:s");
+  echo $hoy;
+
+
+
+
+  $sql = "INSERT INTO LPF (id_tracker,latitud,longitud,last_update,patente,direccion_usuario,fecha) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$direcc1', '$hoy')";
+
 
 
 
