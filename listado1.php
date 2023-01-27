@@ -126,7 +126,7 @@ foreach ($array as $item) {
 
 
 
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM lpf WHERE fecha= '$hoy' AND id_tracker='$id'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha= '$hoy' AND id_tracker='$id'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
 
