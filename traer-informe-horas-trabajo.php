@@ -8,9 +8,9 @@ include "login/conexion.php";
 
 
 
-$json=json_decode($informe);
+$json = json_decode($informe);
 
-$id_informe=$json->id;
+$id_informe = $json->id;
 
 
 echo "<br>";
@@ -66,7 +66,7 @@ curl_close($curl);
 
 
 
-
+sleep(10);
 
 
 
@@ -81,7 +81,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'hash='.$cap.'&report_id='.$id_informe,
+  CURLOPT_POSTFIELDS => 'hash=' . $cap . '&report_id=' . $id_informe,
   CURLOPT_HTTPHEADER => array(
     'Accept: */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
@@ -97,33 +97,18 @@ curl_setopt_array($curl, array(
 echo "<br>";
 $response7 = curl_exec($curl);
 
-$response4= preg_split("/\"/", $response7);
+$response4 = preg_split("/\"/", $response7);
 
-$men= $response4[7];
+$men = $response4[7];
 
-/*
-if($men=="Requested data is not ready yet"){
-
-  
-  $variablex= $id_informe;
-
-  header("location:clone.php?variablex=".$id_informe);
-
- // aqui se se suponeuq enviamos la variable $variablex al php clone
-  // en caso de que falle, reenviamos el mismo id_informe al clone para que pueda leer el informe de ese id, porque el tema
-  //es que si hacemos un refresh en este php el id_informe aumenta osea pasamos de 1 a 2 y hacerlo recargar no va a hacer que funcione
-
-  // por ello queria hacer esto, reenviamos el primer id que usamos y en caso de fallar capturar este mismo id y reenviarlo al clone para que si lo haga funcionar
-
-  //se me entiende?
-  //ahora un detalle el clone no me captura el $variablex
-} 
-*/
+echo $men;
 
 
-$horas=json_decode($response7);
 
-$buses=$horas->report->sheets[0]->sections[0]->data[0]->rows;
+
+$horas = json_decode($response7);
+
+$buses = $horas->report->sheets[0]->sections[0]->data[0]->rows;
 
 
 
@@ -147,10 +132,10 @@ foreach ($buses as $items) {
   //$hoy = date("Y-m-d H:i:s");                   // 2001-03-10 17:16:18 (el formato DATETIME de MySQL)
   //echo $fecha_reporte=$items->created.' / ';
 
-  $divpatente= preg_split("/-/", $plate);
+  $divpatente = preg_split("/-/", $plate);
 
-  $VarPatente= $divpatente[0];
-  $VarId= $divpatente[1];
+  $VarPatente = $divpatente[0];
+  $VarId = $divpatente[1];
 
 
   $sql = "INSERT INTO reporte_ralenti (patenteV, patenteId, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate','$VarId', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";

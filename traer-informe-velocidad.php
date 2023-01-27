@@ -117,7 +117,7 @@ foreach ($id_trackers as $movil) {
     $rows = $json2->report->sheets[0]->sections[1]->data[0]->rows;
 
     foreach ($rows as $element) {
-
+    
       $id_v = '';
 
       echo $pat . ' / ';
@@ -126,11 +126,12 @@ foreach ($id_trackers as $movil) {
       echo $duracion = $element->duration->v . ' / ';
       echo $hora = $element->start_time->v . ' / ';
       echo $direcc = $element->max_speed_address->v . ' / ';
+      $direcc1 = addslashes($direcc);
       echo $lat = $element->max_speed_address->location->lat . ' / ';
       echo $lng = $element->max_speed_address->location->lng . ' / ';
       echo "<br>";
 
-      $sql = "INSERT INTO reporte_velocidad (patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc', '$lat', '$lng')";
+      $sql = "INSERT INTO reporte_velocidad (patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc1', '$lat', '$lng')";
 
       $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_velocidad WHERE latitude='$lat' AND longitude='$lng' AND hora='$hora'");
 
