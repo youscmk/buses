@@ -1,7 +1,8 @@
 <?php
 
-$curl = curl_init();
+ $hoy = date("Y-m-d");  
 
+$curl = curl_init();
 curl_setopt_array($curl, array(
   CURLOPT_URL => 'http://www.trackermasgps.com/api-v2/user/auth',
   CURLOPT_RETURNTRANSFER => true,

@@ -121,7 +121,7 @@ foreach ($array as $item) {
 
 
 
-  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,direccion_usuario,fecha) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$direcc1' ,'$hoy')";
+  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
 
 
 
