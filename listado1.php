@@ -116,8 +116,8 @@ foreach ($array as $item) {
   $direcc1 = addslashes($direcc);
 	echo $direcc1; 
 
-  date_default_timezone_set("America/Santiago");
-  $hoy = date("Y-m-d");    
+  // date_default_timezone_set("America/Santiago");
+  // $hoy = date("Y-m-d");    
 
 
 
