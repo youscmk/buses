@@ -116,24 +116,19 @@ foreach ($array as $item) {
   $direcc1 = addslashes($direcc);
 	echo $direcc1; 
 
-  // date_default_timezone_set("America/Santiago");
-  // $hoy = date("Y-m-d");    
-  $fechafiltro = preg_split("/-/", $last_u);
-  $fechaHOY = $fechafiltro[0] . "-" .$fechafiltro[1] . "-" .$fechafiltro[2];
 
-
-  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$fechaHOY', '$direcc1')";
+  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
 
 
 
 
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha= '$fechaHOY' AND id_tracker='$id'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha= '$hoy' AND id_tracker='$id'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
 
     // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
 
-    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , direccion_usuario='$direcc1' ,last_update= '$last_u', fecha='$fechaHOY' WHERE patente='$plate' AND latitud='$lat' AND longitud='$lng' AND id_tracker='$id'";
+    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , direccion_usuario='$direcc1' ,last_update= '$last_u', fecha='$hoy' WHERE fecha= '$hoy' AND id_tracker='$id' ";
 
     $ejecutar1 = mysqli_query($mysqli, $sql1);
 
