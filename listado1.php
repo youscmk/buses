@@ -120,6 +120,7 @@ foreach ($array as $item) {
 	echo $direcc1; 
 
 
+  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha_h, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
 
 
 
@@ -153,7 +154,6 @@ $ejecutar1 = mysqli_query($mysqli, $sql1);
 
     }else{
 // si no se repite entonces se sube y el $hoy tiene fecha se sube
-$sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha_h, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
 
 $ejecutar = mysqli_query($mysqli, $sql);
   
