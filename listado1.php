@@ -120,18 +120,18 @@ foreach ($array as $item) {
 	echo $direcc1; 
 
 
-  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
+  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha_h, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
 
 
 
 
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha= '$hoy' AND id_tracker='$id'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha_h= '$hoy' AND id_tracker='$id'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
 
     // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
 
-    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , direccion_usuario='$direcc1' ,last_update= '$last_u', fecha='$hoy' WHERE fecha= '$hoy' AND id_tracker='$id' ";
+    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , direccion_usuario='$direcc1' ,last_update= '$last_u', fecha_h='$hoy' WHERE fecha_h= '$hoy' AND id_tracker='$id' ";
 
     
     if ($hoy === null || $hoy == "" || $hoy == 0000-00-00 || $hoy == "0000-00-00") {
