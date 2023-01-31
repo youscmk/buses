@@ -16,7 +16,8 @@ foreach ($id_trackers as $movil) {
 
 
   $bus = $movil;
-  $ayer = date("Y-m-d", strtotime("yesterday"));
+  date_default_timezone_set("America/Santiago");
+  echo $ayer = date("Y-m-d", strtotime('-1 day', time()));
 
   $hash = $cap;
   $title = urlencode('Informe de violación de velocidad');

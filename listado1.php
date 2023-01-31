@@ -138,7 +138,15 @@ foreach ($array as $item) {
 
   } else {
 
-    // si no se repite entonces se sube
-    $ejecutar = mysqli_query($mysqli, $sql);
-  }
+    if ($hoy == null || $hoy == "") {
+
+      // Si hoy esta vacio no se sube nada
+
+
+    }else{
+// si no se repite entonces se sube y el $hoy tiene fecha se sube
+$ejecutar = mysqli_query($mysqli, $sql);
+  
+    }
+    }
 }

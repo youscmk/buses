@@ -66,7 +66,7 @@ curl_close($curl);
 
 
 
-sleep(10);
+sleep(30);
 
 
 
