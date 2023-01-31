@@ -133,12 +133,21 @@ foreach ($array as $item) {
 
     $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , direccion_usuario='$direcc1' ,last_update= '$last_u', fecha='$hoy' WHERE fecha= '$hoy' AND id_tracker='$id' ";
 
-    $ejecutar1 = mysqli_query($mysqli, $sql1);
+    
+    if ($hoy === null || $hoy == "" || $hoy == 0000-00-00 || $hoy == "0000-00-00") {
 
+      // Si hoy esta vacio no se sube nada
+
+
+    }else{
+// si no se repite entonces se sube y el $hoy tiene fecha se sube
+$ejecutar1 = mysqli_query($mysqli, $sql1);
+
+    }
 
   } else {
 
-    if ($hoy == null || $hoy == "") {
+    if ($hoy === null || $hoy == "" || $hoy == 0000-00-00 || $hoy == "0000-00-00") {
 
       // Si hoy esta vacio no se sube nada
 
