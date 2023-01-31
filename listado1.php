@@ -6,6 +6,9 @@ include "login/conexion.php";
 //header("refresh:2");
 $listado = '';
 
+echo $hoy = date("Y-m-d");
+
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(

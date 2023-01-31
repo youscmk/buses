@@ -1,6 +1,5 @@
 <?php
 
- $hoy = date("Y-m-d");  
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
