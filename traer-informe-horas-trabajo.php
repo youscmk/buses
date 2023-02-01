@@ -12,7 +12,7 @@ $json = json_decode($informe);
 
 $id_informe = $json->id;
 
-sleep(15);
+
 echo "<br>";
 echo "<br><b>" . "  &nbsp[[ID REPORTE]]</b>";
 echo "<br>" . "[[[-->" . $id_informe  . "<--]]]";
@@ -62,6 +62,7 @@ curl_close($curl);
 
 
 
+sleep(10);
 
 
 
@@ -132,15 +133,15 @@ foreach ($buses as $items) {
   //$hoy = date("Y-m-d H:i:s");                   // 2001-03-10 17:16:18 (el formato DATETIME de MySQL)
   //echo $fecha_reporte=$items->created.' / ';
 
-  $divpatente = preg_split("/-/", $plate);
+  /*$divpatente = preg_split("/-/", $plate);
 
   $VarPatente = $divpatente[0];
-  $VarId = $divpatente[1];
+  $VarId = $divpatente[1];*/
 
 
-  $sql = "INSERT INTO reporte_ralenti (patenteV, patenteId, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate','$VarId', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
+  $sql = "INSERT INTO reporte_ralenti (patenteV, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";
 
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE fecha='$fecha_ayer' AND patenteId='$VarId' OR total_horas='$total_horas' OR ralenti='$ralenti' OR en_movimiento='$en_movimiento'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE fecha='$fecha_ayer' OR total_horas='$total_horas' OR ralenti='$ralenti' OR en_movimiento='$en_movimiento'");
   if (mysqli_num_rows($datosduplicados) > 0) {
   } else {
 

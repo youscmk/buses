@@ -6,9 +6,6 @@ include "login/conexion.php";
 //header("refresh:2");
 $listado = '';
 
-echo $hoy = date("Y-m-d");
-
-
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -117,46 +114,30 @@ foreach ($array as $item) {
   $direcc = $array4;
 
   $direcc1 = addslashes($direcc);
-	echo $direcc1; 
+  echo $direcc1;
+
+  date_default_timezone_set("America/Santiago");
+  $hoy = date("Y-m-d");
 
 
-  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha_h, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
+
+  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,direccion_usuario,fecha) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$direcc1' ,'$hoy')";
 
 
 
 
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha_h= '$hoy' AND id_tracker='$id'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha= '$hoy' AND id_tracker='$id'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
 
     // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
 
-    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , direccion_usuario='$direcc1' ,last_update= '$last_u', fecha_h='$hoy' WHERE fecha_h= '$hoy' AND id_tracker='$id' ";
+    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , last_update= '$last_u', direccion_usuario='$direcc1' WHERE fecha= '$hoy' AND id_tracker='$id'";
 
-    
-    if ($hoy === null || $hoy == "" || $hoy == 0000-00-00 || $hoy == "0000-00-00") {
-
-      // Si hoy esta vacio no se sube nada
-
-
-    }else{
-// si no se repite entonces se sube y el $hoy tiene fecha se sube
-$ejecutar1 = mysqli_query($mysqli, $sql1);
-
-    }
-
+    $ejecutar1 = mysqli_query($mysqli, $sql1);
   } else {
 
-    if ($hoy === null || $hoy == "" || $hoy == 0000-00-00 || $hoy == "0000-00-00") {
-
-      // Si hoy esta vacio no se sube nada
-
-
-    }else{
-// si no se repite entonces se sube y el $hoy tiene fecha se sube
-
-$ejecutar = mysqli_query($mysqli, $sql);
-  
-    }
-    }
+    // si no se repite entonces se sube
+    $ejecutar = mysqli_query($mysqli, $sql);
+  }
 }
