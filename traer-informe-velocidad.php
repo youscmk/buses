@@ -17,7 +17,6 @@ foreach ($id_trackers as $movil) {
 
   $bus = $movil;
   $ayer = date("Y-m-d", strtotime("yesterday"));
-
   $hash = $cap;
   $title = urlencode('Informe de violación de velocidad');
   //$trackers=10184146 ;
@@ -66,7 +65,6 @@ foreach ($id_trackers as $movil) {
   $id_informe = $json->id;
 
 
-  sleep(10);
 
   $curl = curl_init();
 
@@ -108,6 +106,8 @@ foreach ($id_trackers as $movil) {
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
 
+  
+
   if ($json2->report->sheets[0]->header <> "No hay datos") {
 
     echo $json2->report->sheets[0]->sections[1]->header;
@@ -117,7 +117,7 @@ foreach ($id_trackers as $movil) {
     $rows = $json2->report->sheets[0]->sections[1]->data[0]->rows;
 
     foreach ($rows as $element) {
-
+    
       $id_v = '';
 
       echo $pat . ' / ';
@@ -127,12 +127,11 @@ foreach ($id_trackers as $movil) {
       echo $hora = $element->start_time->v . ' / ';
       echo $direcc = $element->max_speed_address->v . ' / ';
       $direcc1 = addslashes($direcc);
-
       echo $lat = $element->max_speed_address->location->lat . ' / ';
       echo $lng = $element->max_speed_address->location->lng . ' / ';
       echo "<br>";
 
-      $sql = "INSERT INTO reporte_velocidad (id_v, patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$id_v', '$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc1', '$lat', '$lng')";
+      $sql = "INSERT INTO reporte_velocidad (patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc1', '$lat', '$lng')";
 
       $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_velocidad WHERE latitude='$lat' AND longitude='$lng' AND hora='$hora'");
 
@@ -145,3 +144,4 @@ foreach ($id_trackers as $movil) {
     }
   }
 }
+?>

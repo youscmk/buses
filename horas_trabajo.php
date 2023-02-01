@@ -1,7 +1,7 @@
 <?php
 
 include "./login/login.php";
-echo "<br>";
+echo"<br>";
 include "./listadoBusesHorasMotor.php";
 // genera informe
 
@@ -10,9 +10,9 @@ include "./listadoBusesHorasMotor.php";
 
 
 
-$hash = $cap;
-$title = urlencode('Informe de horas de motor');
-$trackers = urlencode('[' . $buses . ']');
+$hash=$cap;
+$title=urlencode('Informe de horas de motor');
+$trackers=urlencode('['.$buses.']');
 
 date_default_timezone_set("America/Santiago");
 
@@ -23,18 +23,18 @@ echo $variableanterio;
 
 //Esta variable creada es para que ESTE UNICO PHP capture el dia anterior y al mismo tiempo genere el informe de ese dia en especifico
 
-$from = urlencode('' . $variableanterio . ' 00:00:00');
+$from=urlencode(''.$variableanterio.' 00:00:00');
 
-$to = urlencode('' . $variableanterio . ' 23:59:59');
+$to=urlencode(''.$variableanterio.' 23:59:59');
 
 
 
-$time_filter = urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
-$plugin = urlencode('{"hide_empty_tabs":true,"plugin_id":7,"show_seconds":false,"show_detailed":false,"include_summary_sheet_only":false,"filter":true}');
+$time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
+$plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":7,"show_seconds":false,"show_detailed":false,"include_summary_sheet_only":false,"filter":true}');
 
-$cadena = 'hash=' . $cap . '&title=' . $title . '&trackers=' . $trackers . '&from=' . $from . '&to=' . $to . '&time_filter=' . $time_filter . '&plugin=' . $plugin;
+$cadena='hash='.$cap.'&title='.$title.'&trackers='.$trackers.'&from='.$from.'&to='.$to.'&time_filter='.$time_filter.'&plugin='.$plugin;
 
-echo "<br>";
+echo"<br>";
 
 
 //hash=16adbc47941655ecc1a34cdf0a9d28fb&title=Informe de horas de motor&trackers=[10177117]&from=2023-01-01 00:00:00&to=2023-01-07 23:59:59&time_filter={"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}&plugin={"hide_empty_tabs":true,"plugin_id":7,"show_seconds":false,"show_detailed":false,"include_summary_sheet_only":false,"filter":true}
@@ -43,7 +43,7 @@ echo "<br>";
 
 
 
-echo "<br>";
+echo"<br>";
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -55,7 +55,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS => $cadena,
+  CURLOPT_POSTFIELDS =>$cadena,
   CURLOPT_HTTPHEADER => array(
     'Accept: */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
@@ -75,3 +75,6 @@ curl_close($curl);
 //Todos lo que hacemos arriba es para crear esta variable 
 
 echo $informe;
+
+
+?>
