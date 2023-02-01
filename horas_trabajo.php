@@ -75,6 +75,3 @@ curl_close($curl);
 //Todos lo que hacemos arriba es para crear esta variable 
 
 echo $informe;
-
-
-?>

@@ -56,5 +56,3 @@ $i++ ;
 // print_r($id_trackers);
 // echo "<br>";
 // print_r($patentes);
-
-?>
