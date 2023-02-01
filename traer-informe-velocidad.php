@@ -128,7 +128,7 @@ foreach ($id_trackers as $movil) {
       echo $direcc = $element->max_speed_address->v . ' / ';
       $direcc1 = addslashes($direcc);
       echo $lat = $element->max_speed_address->location->lat . ' / ';
-      echo $lng = $element->max_speed_address->location->lng . ' / ';
+      echo $lng = $element->max_speed_address->location->lng;
       echo "<br>";
 
       $sql = "INSERT INTO reporte_velocidad (patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc1', '$lat', '$lng')";
