@@ -33,4 +33,3 @@ $cap= $json->hash;
 //echo $cap;
 
  curl_close($curl);
- ?>
