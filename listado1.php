@@ -114,7 +114,10 @@ foreach ($array as $item) {
   $direcc = $array4;
 
   $direcc1 = addslashes($direcc);
-	echo $direcc1; 
+	echo $direcc1;
+  
+  date_default_timezone_set("America/Santiago");
+  $hoy = date("Y-m-d");
 
 
   $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
