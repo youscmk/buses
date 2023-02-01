@@ -15,8 +15,9 @@ foreach ($id_trackers as $movil) {
 
 
 
-  $bus = $movil;;
-  $ayer = date("Y-m-d", strtotime("yesterday"));
+  $bus = $movil;
+  date_default_timezone_set("America/Santiago");
+  echo $ayer = date("Y-m-d", strtotime('-1 day', time()));
 
   $hash = $cap;
   $title = urlencode('Informe de violación de velocidad');
@@ -66,6 +67,7 @@ foreach ($id_trackers as $movil) {
   $id_informe = $json->id;
 
 
+  sleep(10);
 
   $curl = curl_init();
 
@@ -144,4 +146,3 @@ foreach ($id_trackers as $movil) {
     }
   }
 }
-?>

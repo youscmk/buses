@@ -62,12 +62,11 @@ curl_close($curl);
 
 
 
-sleep(10);
 
 
 
 
-
+sleep(15);
 
 
 
@@ -136,7 +135,7 @@ foreach ($buses as $items) {
   /*$divpatente = preg_split("/-/", $plate);
 
   $VarPatente = $divpatente[0];
-  $VarId = $divpatente[1];*/
+  $VarId = $divpatente[1]; */
 
 
   $sql = "INSERT INTO reporte_ralenti (patenteV, total_horas, ralenti, en_movimiento, fecha) VALUES ('$plate', '$total_horas', '$ralenti', '$en_movimiento', '$fecha_ayer')";

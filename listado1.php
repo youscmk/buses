@@ -116,12 +116,8 @@ foreach ($array as $item) {
   $direcc1 = addslashes($direcc);
   echo $direcc1;
 
-  date_default_timezone_set("America/Santiago");
-  $hoy = date("Y-m-d");
 
-
-
-  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,direccion_usuario,fecha) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$direcc1' ,'$hoy')";
+  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,fecha, direccion_usuario) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$hoy', '$direcc1')";
 
 
 
@@ -132,7 +128,7 @@ foreach ($array as $item) {
 
     // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
 
-    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , last_update= '$last_u', direccion_usuario='$direcc1' WHERE fecha= '$hoy' AND id_tracker='$id'";
+    $sql1 = "UPDATE LPF SET latitud='$lat', longitud='$lng' , direccion_usuario='$direcc1' ,last_update= '$last_u', fecha='$hoy' WHERE fecha= '$hoy' AND id_tracker='$id' ";
 
     $ejecutar1 = mysqli_query($mysqli, $sql1);
   } else {
