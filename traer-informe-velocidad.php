@@ -67,7 +67,7 @@ foreach ($id_trackers as $movil) {
   $id_informe = $json->id;
 
 
-  sleep(10);
+  sleep(4);
 
   $curl = curl_init();
 

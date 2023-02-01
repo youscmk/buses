@@ -12,7 +12,7 @@ $json = json_decode($informe);
 
 $id_informe = $json->id;
 
-
+sleep(4);
 echo "<br>";
 echo "<br><b>" . "  &nbsp[[ID REPORTE]]</b>";
 echo "<br>" . "[[[-->" . $id_informe  . "<--]]]";
@@ -66,7 +66,7 @@ curl_close($curl);
 
 
 
-sleep(30);
+
 
 
 
