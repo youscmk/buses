@@ -1,6 +1,5 @@
 <?php
 
-include "./login/login.php";
 include "./listadoBuses.php";
 include "./login/conexion.php";
 
@@ -16,11 +15,9 @@ foreach ($id_trackers as $movil) {
 
 
   $bus = $movil;
-  date_default_timezone_set("America/Santiago");
-  echo $ayer = date("Y-m-d", strtotime('-1 day', time()));
-
+  $ayer = date("Y-m-d", strtotime("yesterday"));
   $hash = $cap;
-  $title = urlencode('Informe de violación de velocidad');
+  $title = urlencode('Informe de violaciÃ³n de velocidad');
   //$trackers=10184146 ;
   $trackers = urlencode("[$bus]");
   $from = urlencode("$ayer 00:00:00");
@@ -30,7 +27,6 @@ foreach ($id_trackers as $movil) {
 
   $cadena = 'hash=' . $cap . '&title=' . $title . '&trackers=' . $trackers . '&from=' . $from . '&to=' . $to . '&time_filter=' . $time_filter . '&plugin=' . $plugin;
 
-  echo "<br>";
 
 
   $curl = curl_init();
@@ -67,7 +63,6 @@ foreach ($id_trackers as $movil) {
   $id_informe = $json->id;
 
 
-  sleep(4);
 
   $curl = curl_init();
 
@@ -109,10 +104,11 @@ foreach ($id_trackers as $movil) {
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
 
+  
+
   if ($json2->report->sheets[0]->header <> "No hay datos") {
 
-    echo $json2->report->sheets[0]->sections[1]->header;
-    echo "<br>";
+     $json2->report->sheets[0]->sections[1]->header;
 
 
     $rows = $json2->report->sheets[0]->sections[1]->data[0]->rows;
@@ -121,24 +117,24 @@ foreach ($id_trackers as $movil) {
 
       $id_v = '';
 
-      echo $pat . ' / ';
-      echo $ayer . ' / ';
-      echo $vel_max = $element->max_speed->v . ' / ';
-      echo $duracion = $element->duration->v . ' / ';
-      echo $hora = $element->start_time->v . ' / ';
-      echo $direcc = $element->max_speed_address->v . ' / ';
-      $direcc1 = addslashes($direcc);
+       $pat . ' / ';
+       $ayer . ' / ';
+       $vel_max = $element->max_speed->v . ' / ';
+       $duracion = $element->duration->v . ' / ';
+       $hora = $element->start_time->v . ' / ';
+       $direcc = $element->max_speed_address->v . ' / ';
+       $lat = $element->max_speed_address->location->lat . ' / ';
+       $lng = $element->max_speed_address->location->lng . ' / ';
 
-      echo $lat = $element->max_speed_address->location->lat . ' / ';
-      echo $lng = $element->max_speed_address->location->lng . ' / ';
-      echo "<br>";
+      
 
-      $sql = "INSERT INTO reporte_velocidad (id_v, patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$id_v', '$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc1', '$lat', '$lng')";
+      $sql = "INSERT INTO reporte_velocidad (patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc', '$lat', '$lng')";
 
       $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_velocidad WHERE latitude='$lat' AND longitude='$lng' AND hora='$hora'");
 
 
       if (mysqli_num_rows($datosduplicados) > 0) {
+
       } else {
 
         $ejecutar = mysqli_query($mysqli, $sql);
@@ -146,4 +142,3 @@ foreach ($id_trackers as $movil) {
     }
   }
 }
-?>

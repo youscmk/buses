@@ -12,7 +12,7 @@ $json = json_decode($informe);
 
 $id_informe = $json->id;
 
-sleep(4);
+sleep(15);
 echo "<br>";
 echo "<br><b>" . "  &nbsp[[ID REPORTE]]</b>";
 echo "<br>" . "[[[-->" . $id_informe  . "<--]]]";
