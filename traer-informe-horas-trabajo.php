@@ -66,7 +66,7 @@ curl_close($curl);
 
 
 
-sleep(10);
+sleep(25);
 
 
 
@@ -100,7 +100,6 @@ $response7 = curl_exec($curl);
 $response4 = preg_split("/\"/", $response7);
 
 $men = $response4[7];
-
 echo $men;
 
 if ($men == "Requested data is not ready yet") {
@@ -108,7 +107,7 @@ if ($men == "Requested data is not ready yet") {
 
   $variablex = $id_informe;
 
-  header("location:clone.php?variablex=" . $id_informe);
+  header("Location:clone.php?variablex=" . $id_informe);
 
 
 
