@@ -133,7 +133,7 @@ foreach ($id_trackers as $movil) {
 
       $sql = "INSERT INTO reporte_velocidad (patente, fecha, vel_max, duracion, hora, direcc, latitude, longitude) VALUES ('$pat', '$ayer', '$vel_max', '$duracion', '$hora', '$direcc1', '$lat', '$lng')";
 
-      $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_velocidad WHERE latitude='$lat' AND longitude='$lng' AND hora='$hora'");
+      $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_velocidad WHERE patente='$pat' AND latitude='$lat' AND longitude='$lng' AND hora='$hora' AND fecha='$ayer'");
 
 
       if (mysqli_num_rows($datosduplicados) > 0) {
