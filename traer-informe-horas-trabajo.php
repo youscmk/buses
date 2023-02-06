@@ -152,6 +152,9 @@ foreach ($buses as $items) {
   $datosduplicados = mysqli_query($mysqli, "SELECT * FROM reporte_ralenti WHERE total_horas='$total_horas' AND ralenti='$ralenti' AND en_movimiento='$en_movimiento' AND fecha='$fecha_ayer'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
+    $sql = "DELETE FROM reporte_ralenti WHERE patenteV='$plate'";
+    $ejecutar1  = mysqli_query($mysqli, $sql);
+
   } else {
 
     $ejecutar = mysqli_query($mysqli, $sql);

@@ -120,12 +120,12 @@ foreach ($array as $item) {
   $hoy = date("Y-m-d");
 
 
-  $sql = "INSERT INTO lpf(id_tracker,latitud,longitud,last_update,patente,direccion_usuario, fecha) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$direcc1', '$hoy' )";
+  $sql = "INSERT INTO LPF(id_tracker,latitud,longitud,last_update,patente,direccion_usuario, fecha) VALUES ('$id', '$lat', '$lng', '$last_u', '$plate', '$direcc1', '$hoy' )";
 
 
 
 
-  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM lpf WHERE fecha= '$hoy' AND id_tracker='$id'");
+  $datosduplicados = mysqli_query($mysqli, "SELECT * FROM LPF WHERE fecha= '$hoy' AND id_tracker='$id'");
 
   if (mysqli_num_rows($datosduplicados) > 0) {
 
