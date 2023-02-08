@@ -106,7 +106,7 @@ foreach ($id_trackers as $movil) {
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
   //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
 
-  
+
 
   if ($json2->report->sheets[0]->header <> "No hay datos") {
 
@@ -117,7 +117,7 @@ foreach ($id_trackers as $movil) {
     $rows = $json2->report->sheets[0]->sections[1]->data[0]->rows;
 
     foreach ($rows as $element) {
-    
+
       $id_v = '';
 
       echo $pat . ' / ';
@@ -137,11 +137,12 @@ foreach ($id_trackers as $movil) {
 
 
       if (mysqli_num_rows($datosduplicados) > 0) {
-      } else {
+    
 
+      } else {
+        
         $ejecutar = mysqli_query($mysqli, $sql);
       }
     }
   }
 }
-?>
