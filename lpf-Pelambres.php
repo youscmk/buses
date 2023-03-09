@@ -44,6 +44,7 @@ foreach ($array as $item) {
 
  
    $id = $item->id;
+   $imei =$item->source->device_id;
   //echo " , &nbsp";
   
 
@@ -84,13 +85,29 @@ foreach ($array as $item) {
 
   $plate = $item->label;
 
+  $speed=$json2->state->gps->speed;
+
+  $direccion=$json2->state->gps->heading;
+
+  $connection_status=$json2->state->connection_status;
+
+  $movement_status=$json2->state->movement_status;
+
 
 
     $json =array (
 
+
+      'id'=>$id,
+      'imei'=>$imei,
       'patente'=>$plate,
       'lat'=>$lat,
       'lng'=>$lng,
+      'speed'=>$speed,
+      'direccion'=>$direccion,
+      'connection_status'=>$connection_status,
+      'movement_status'=>$movement_status,
+      
       'ultima-conexion'=>$last_u
       
     );
