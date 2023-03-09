@@ -2,7 +2,7 @@
 //include "./login/login-lascondes.php";
 // include "login/conexion.php";
 
-require_once './login/login-lascondes.php';
+require_once './login/login-pelambres.php';
 
 
 //header("refresh:2");
@@ -93,6 +93,14 @@ foreach ($array as $item) {
 
   $movement_status=$json2->state->movement_status;
 
+  $signal_level=$json2->state->gps->signal_level;
+
+  $ignicion=$json2->state->inputs[0];
+
+  include './odometro.php';
+  include './hmotor.php';
+
+
 
 
     $json =array (
@@ -106,8 +114,12 @@ foreach ($array as $item) {
       'speed'=>$speed,
       'direccion'=>$direccion,
       'connection_status'=>$connection_status,
+      'signal_level'=>$signal_level,
       'movement_status'=>$movement_status,
-      
+      'ignicion'=>$ignicion,
+      'odometro'=>$odometro,
+      'Hmotor'=>$hmotor,
+  
       'ultima-conexion'=>$last_u
       
     );
