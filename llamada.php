@@ -10,12 +10,10 @@
     
   
 
-<form action="/action_page.php">
+
   <label for="phone">llamar a:</label><br><br>
-  <input type="tel" value="950906625" required><br><br>
- 
-  <input type="submit">
-</form>
+  <a href="tel:+56950906625">Dorian</a>
+
 
 </body>
 </html>
