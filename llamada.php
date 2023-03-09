@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
     <title>Document</title>
 </head>
 <body>
@@ -11,8 +13,7 @@
   
 
 
-  <label for="phone">llamar a:</label><br><br>
-  <a href="tel:+56950906625">Dorian</a>
+  <a href="tel:+56989526365" class="btn btn-primary" >llamar</a>
 
 
 </body>
