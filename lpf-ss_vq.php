@@ -2,7 +2,7 @@
 //include "./login/login-lascondes.php";
 // include "login/conexion.php";
 
-require_once './login/login-pelambres.php';
+require_once './login/login_ss_vq.php';
 
 
 //header("refresh:2");
@@ -130,4 +130,3 @@ foreach ($array as $item) {
 }
 
 echo json_encode($total, http_response_code(200));
-

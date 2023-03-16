@@ -10,10 +10,13 @@
 </head>
 <body>
     
-  
+  <div class="container">
+  <a href="tel:+56989526365" class="btn btn-primary "  >llamar</a>
+  </div>
 
 
-  <a href="tel:+56989526365" class="btn btn-primary" >llamar</a>
+ 
+
 
 
 </body>
