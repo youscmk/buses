@@ -41,6 +41,9 @@ foreach ($array as $item) {
   echo "<br>";
   echo $id = $item->id;
   echo " , &nbsp";
+  echo
+  $imei=$item->source->device_id;
+
 
 
   $curl = curl_init();
@@ -80,9 +83,7 @@ foreach ($array as $item) {
 
    $plate = $item->label;
   //echo " , &nbsp";
-
-  $status=$item->state->connection_status;
-
+  $status=$json2->state->connection_status;
 
   $curl = curl_init();
 
@@ -122,7 +123,7 @@ foreach ($array as $item) {
   $hoy = date("Y-m-d h:i:s ");
 
 
-  $sql = "INSERT INTO lpf (cuenta,id_tracker,`lat`,`long`,`patente`,`direccion`,`fecha`,`last_update` ) VALUES ('lasCondes','$id', '$lat', '$lng', '$plate', '$direcc1', '$hoy','$last_u'  )";
+  $sql = "INSERT INTO lpf (cuenta,id_tracker,`lat`,`long`,`patente`,`direccion`,`fecha`,`last_update`, `imei`,`connection_status`; ) VALUES ('lasCondes','$id', '$lat', '$lng', '$plate', '$direcc1', '$hoy','$last_u','$imei', '$status'  )";
  
 
 
@@ -133,7 +134,7 @@ foreach ($array as $item) {
 
      // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
     
-     $sql1 = "UPDATE lpf SET `lat`='$lat', `long`='$lng' , `direccion`='$direcc1' ,`last_update`= '$last_u', `fecha`='$hoy', `cuenta`='lasCondes', `connection_status`='$status' WHERE `id_tracker`='$id' ";
+     $sql1 = "UPDATE lpf SET `lat`='$lat', `long`='$lng' , `direccion`='$direcc1' ,`last_update`= '$last_u', `fecha`='$hoy', `cuenta`='lasCondes', `imei`='$imei', `connection_status`='$status' WHERE `id_tracker`='$id' ";
 
     $ejecutar1 = mysqli_query($mysqli, $sql1);
     echo "actualizado <br>";
