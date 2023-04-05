@@ -1,5 +1,5 @@
 <?php
-include "./login/login-pullman.php";
+include "login/login-pullman.php";
 include "login/conexion.php";
 
 

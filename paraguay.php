@@ -1,5 +1,5 @@
 <?php
-include "./login/login-paraguay.php";
+include "login/login-paraguay.php";
 include "login/conexion.php";
 
 

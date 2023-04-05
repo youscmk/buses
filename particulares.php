@@ -1,5 +1,5 @@
 <?php
-include "./login/login-particulares.php";
+include "login/login-particulares.php";
 include "login/conexion.php";
 
 
