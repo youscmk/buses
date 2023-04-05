@@ -1,5 +1,5 @@
 <?php
-include "./login/login-vina.php";
+include "login/login-vina.php";
 include "login/conexion.php";
 
 
