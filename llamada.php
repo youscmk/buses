@@ -97,7 +97,7 @@
     </div>
     <div id="telefono">
 
-       <a href="tel:56989526365"> <img src="./img/Grupo 8.svg" width="100.35px" alt=""></a>
+       <a href="tel:+56989526365"> <img src="./img/Grupo 8.svg" width="100.35px" alt=""></a>
 
     </div>
 
