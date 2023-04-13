@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="118.351" height="136.175" viewBox="0 0 118.351 136.175">
+  <defs>
+    <filter id="Icon_awesome-phone-square-alt" x="0" y="0" width="118.351" height="118.351" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.686"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Icon_awesome-phone-square-alt-2" x="0" y="0" width="118.351" height="118.351" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-color="#fff" flood-opacity="0.475" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-2"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Grupo_8" data-name="Grupo 8" transform="translate(-71.649 -396.825)">
+    <g data-type="innerShadowGroup">
+      <g transform="matrix(1, 0, 0, 1, 71.65, 396.82)" filter="url(#Icon_awesome-phone-square-alt)">
+        <path id="Icon_awesome-phone-square-alt-3" data-name="Icon awesome-phone-square-alt" d="M89.6,2.25H10.752A10.752,10.752,0,0,0,0,13V91.849A10.752,10.752,0,0,0,10.752,102.6H89.6a10.752,10.752,0,0,0,10.752-10.752V13A10.752,10.752,0,0,0,89.6,2.25ZM85.927,71.1l-3.36,14.56a3.36,3.36,0,0,1-3.273,2.605A64.964,64.964,0,0,1,14.336,23.306a3.517,3.517,0,0,1,2.605-3.273l14.56-3.36a4.083,4.083,0,0,1,.755-.087,3.644,3.644,0,0,1,3.089,2.036l6.72,15.68a4.01,4.01,0,0,1,.271,1.324,3.808,3.808,0,0,1-1.232,2.6L32.616,45.17A51.947,51.947,0,0,0,57.431,69.984L64.374,61.5a3.808,3.808,0,0,1,2.6-1.232,4,4,0,0,1,1.324.271l15.68,6.72a3.64,3.64,0,0,1,2.036,3.089,3.9,3.9,0,0,1-.087.755Z" transform="translate(9 3.75)" fill="#1d0"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 71.65, 396.82)" filter="url(#Icon_awesome-phone-square-alt-2)">
+        <path id="Icon_awesome-phone-square-alt-4" data-name="Icon awesome-phone-square-alt" d="M89.6,2.25H10.752A10.752,10.752,0,0,0,0,13V91.849A10.752,10.752,0,0,0,10.752,102.6H89.6a10.752,10.752,0,0,0,10.752-10.752V13A10.752,10.752,0,0,0,89.6,2.25ZM85.927,71.1l-3.36,14.56a3.36,3.36,0,0,1-3.273,2.605A64.964,64.964,0,0,1,14.336,23.306a3.517,3.517,0,0,1,2.605-3.273l14.56-3.36a4.083,4.083,0,0,1,.755-.087,3.644,3.644,0,0,1,3.089,2.036l6.72,15.68a4.01,4.01,0,0,1,.271,1.324,3.808,3.808,0,0,1-1.232,2.6L32.616,45.17A51.947,51.947,0,0,0,57.431,69.984L64.374,61.5a3.808,3.808,0,0,1,2.6-1.232,4,4,0,0,1,1.324.271l15.68,6.72a3.64,3.64,0,0,1,2.036,3.089,3.9,3.9,0,0,1-.087.755Z" transform="translate(9 3.75)" fill="#fff"/>
+      </g>
+    </g>
+    <text id="LLAMAR_" data-name="LLAMAR " transform="translate(93.649 512)" fill="#65d336" font-size="18" font-family="HelveticaNeue, Helvetica Neue"><tspan x="0" y="17">LLAMAR </tspan></text>
+  </g>
+</svg>
