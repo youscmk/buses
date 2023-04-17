@@ -1,5 +1,5 @@
 <?php
-include "login/login-pullman.php";
+include "login/login-ingegroup.php";
 include "login/conexion.php";
 
 
@@ -34,7 +34,6 @@ $response2 = curl_exec($curl);
 
 $json = json_decode($response2);
 
-
 $array = $json->list;
 
 foreach ($array as $item) {
@@ -45,7 +44,7 @@ foreach ($array as $item) {
   echo
   $imei=$item->source->device_id;
   echo 
-  $group=$item->group_id;
+  $phone=$item->source->phone;
 
 
 
@@ -83,10 +82,14 @@ foreach ($array as $item) {
 
    $last_u = $array2 = $json2->state->last_update;
   //echo " , &nbsp";
-
+echo 
    $plate = $item->label;
   //echo " , &nbsp";
   $status=$json2->state->connection_status;
+
+  echo
+
+  $telco=$json2->state->gsm->network_name;
 
   $curl = curl_init();
 
@@ -126,26 +129,28 @@ foreach ($array as $item) {
   $hoy = date("Y-m-d h:i:s ");
 
 
-  $sql = "INSERT INTO lpf (cuenta,id_tracker,`lat`,`long`,`patente`,`direccion`,`fecha`,`last_update`, `imei`,`connection_status`,`grupo` ) VALUES ('Pullman','$id', '$lat', '$lng', '$plate', '$direcc1', '$hoy','$last_u','$imei', '$status', '$group'  )";
+
+
+   $sql = "INSERT INTO telco (cuenta,id_tracker,`plate`,`imei`,`telefono`,`telco` ) VALUES ('Ingegroup','$id','$plate','$imei','$phone','$telco'  )";
  
 
 
 
-   $datosduplicados = mysqli_query($mysqli, "SELECT * FROM lpf WHERE id_tracker='$id'");
+    $datosduplicados = mysqli_query($mysqli, "SELECT * FROM telco WHERE id_tracker='$id'");
 
-   if (mysqli_num_rows($datosduplicados) > 0) {
+    if (mysqli_num_rows($datosduplicados) > 0) {
 
-     // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
+    // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
     
-     $sql1 = "UPDATE lpf SET `lat`='$lat', `long`='$lng' , `direccion`='$direcc1' ,`last_update`= '$last_u', `fecha`='$hoy', `cuenta`='Pullman', `imei`='$imei', `connection_status`='$status', `grupo`='$group'  WHERE `id_tracker`='$id' ";
+      $sql1 = "UPDATE telco SET `cuenta`='Ingegroup',`plate`='$plate',`imei`='$imei' ,`telefono`='$phone',`telco`='$telco'  WHERE `id_tracker`='$id' ";
 
     $ejecutar1 = mysqli_query($mysqli, $sql1);
     echo "actualizado <br>";
 
-   } else {
+    } else {
 
-  //   // si no se repite entonces se sube
-     $ejecutar = mysqli_query($mysqli, $sql);
-     echo "creado <br>";
-   }
+  // //   // si no se repite entonces se sube
+      $ejecutar = mysqli_query($mysqli, $sql);
+      echo "creado <br>";
+    }
 }
