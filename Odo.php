@@ -1,5 +1,6 @@
 <?php 
 
+$id=$_GET["id"];
 $hash="1a72e843a6696f6772b51624a402cc4a";
 $tracker_id="10184141";
 
@@ -14,7 +15,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'{"type":"odometer","trackers":['.$tracker_id.'],"hash":"'.$hash.'"}',
+  CURLOPT_POSTFIELDS =>'{"type":"odometer","trackers":['.$id.'],"hash":"'.$hash.'"}',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json, text/plain, */*',
     'Referer: http://www.trackermasgps.com/',
@@ -26,7 +27,14 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+
+$json3=json_decode($response);
+
+echo
+
+$odometro= ($json3->value->$id);
+
+
 
 
 
