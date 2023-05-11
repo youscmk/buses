@@ -126,7 +126,7 @@ foreach ($array as $item) {
   $hoy = date("Y-m-d h:i:s ");
 
 
-  $sql = "INSERT INTO lpf (cuenta,id_tracker,`lat`,`long`,`patente`,`direccion`,`fecha`,`last_update`, `imei`,`connection_status` ) VALUES ('Pullman','$id', '$lat', '$lng', '$plate', '$direcc1', '$hoy','$last_u','$imei', '$status'  )";
+  $sql = "INSERT INTO lpf (cuenta,id_tracker,`lat`,`long`,`patente`,`direccion`,`fecha`,`last_update`, `imei`,`connection_status`,`grupo` ) VALUES ('Pullman','$id', '$lat', '$lng', '$plate', '$direcc1', '$hoy','$last_u','$imei', '$status','$group'  )";
  
 
 
@@ -137,7 +137,7 @@ foreach ($array as $item) {
 
      // LO actualizo conforme a la echa de hoy y tambien a la patente me falta terminar el update
     
-     $sql1 = "UPDATE lpf SET `lat`='$lat', `long`='$lng' , `direccion`='$direcc1' ,`last_update`= '$last_u', `fecha`='$hoy', `cuenta`='Pullman', `imei`='$imei', `connection_status`='$status' WHERE `id_tracker`='$id' ";
+     $sql1 = "UPDATE lpf SET `lat`='$lat', `long`='$lng' , `direccion`='$direcc1' ,`last_update`= '$last_u', `fecha`='$hoy', `cuenta`='Pullman', `imei`='$imei', `connection_status`='$status', `grupo`='$group' WHERE `id_tracker`='$id' ";
 
     $ejecutar1 = mysqli_query($mysqli, $sql1);
     echo "actualizado <br>";
