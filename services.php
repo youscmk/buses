@@ -1,11 +1,13 @@
 <?php 
 
-
+date_default_timezone_set("America/Santiago");
+echo
+$hoy = date("d/m/Y");
 
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'http://sistema.pullmanindustrial.cl/funciones/STM00002/ajax.php?funcion=TraeViajesAsg&sistema=U1RNMDAwMDI=&formulario=RlJNX0NPTlNVTFRBVklBSkVT&FechaDesde=11/05/2023&FechaHasta=11/05/2023&CboServicio=Todos&CboChofer=Todos&CboPatente=Todos&CboEstado=Todos&horadesde=00:00&horahasta=24:00&contrato=ICT002&bloqueo=SI',
+  CURLOPT_URL => 'http://sistema.pullmanindustrial.cl/funciones/STM00002/ajax.php?funcion=TraeViajesAsg&sistema=U1RNMDAwMDI=&formulario=RlJNX0NPTlNVTFRBVklBSkVT&FechaDesde='.$hoy.'&FechaHasta='.$hoy.'&CboServicio=Todos&CboChofer=Todos&CboPatente=Todos&CboEstado=Todos&horadesde=00:00&horahasta=24:00&contrato=ICT002&bloqueo=SI',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
