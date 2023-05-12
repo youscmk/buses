@@ -1,7 +1,7 @@
 <?php 
 
 date_default_timezone_set("America/Santiago");
-echo
+
 $hoy = date("d/m/Y");
 
 $curl = curl_init();
