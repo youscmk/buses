@@ -3,7 +3,7 @@
 $contrato="ICT002";
 
 date_default_timezone_set("America/Santiago");
-echo
+
 $hoy = date("Ymd");
 
 
