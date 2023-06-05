@@ -1,5 +1,6 @@
 <?php
 
+// trae datos desde el casaco amarillo de los buses  filtrado por patente
 
 $pat=$_GET['pat'];
 
