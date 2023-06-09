@@ -40,4 +40,13 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+
+
+$array=json_decode($response);
+
+foreach ($array as $item){
+
+    print_r($item);
+    echo "hola";
+}
+
