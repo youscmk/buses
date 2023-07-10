@@ -33,6 +33,7 @@ $response = curl_exec($curl);
 
 $json=json_decode($response);
 $cap= $json->hash;
+$hash=$cap;
 //echo $cap;
 
  curl_close($curl);

@@ -3,7 +3,7 @@
 // include "login/conexion.php";
 
 //require_once './login/login-bronces.php';
-$cap='237137b98db5bd322febc4d2fa86c158';
+$cap='f6bcdb562c636db0e48c9cb196291662';
 
 date_default_timezone_set("America/Santiago");
 
