@@ -3,13 +3,30 @@
 // include "login/conexion.php";
 
 //require_once './login/login-bronces.php';
-$cap='f6bcdb562c636db0e48c9cb196291662';
+$user="losBronces";
+
+
+$pasw="123";
+
+include "./login/conexion.php";
+
+$consulta="SELECT hash FROM masgps.hash where user='$user' and pasw='$pasw'";
+
+$resutaldo= mysqli_query($mysqli,$consulta);
+
+$data=mysqli_fetch_array($resutaldo);
+
+$cap=$data['hash'];
+
+
+
+//$cap='f6bcdb562c636db0e48c9cb196291662';
 
 date_default_timezone_set("America/Santiago");
 
 $hoy = date("d/m/Y H:i:s");
 
-
+LISTADO :
 //header("refresh:2");
 $listado = '';
 $i=0;
@@ -41,7 +58,9 @@ $response2 = curl_exec($curl);
 
 $json = json_decode($response2);
 
-$array = $json->list;
+if(isset($json->list)){
+
+  $array = $json->list;
 
 
 //echo '[';
@@ -77,6 +96,22 @@ foreach ($array as $item) {
 
     $i++;
 }
+
+
+
+} else {
+
+  include "./login/login-bronces.php";
+
+
+
+  $consulta = "UPDATE `masgps`.`hash` SET `hash` = '$hash' WHERE (`id` = '3');";
+
+  $resutaldo3 = mysqli_query($mysqli, $consulta);
+
+  goto LISTADO;
+}
+
 
 echo json_encode($total, http_response_code(200));
 
