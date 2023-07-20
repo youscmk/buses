@@ -20,7 +20,7 @@ date_default_timezone_set("America/Santiago");
 
 $hoy = date("d/m/Y");
 
- $ayer=date('d/m/Y',strtotime("yesterday"));
+ $ayer=date('d/m/Y',strtotime("-1 days"));
 
 $curl = curl_init();
 

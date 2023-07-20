@@ -1,6 +1,7 @@
 <?php
 
 
+
 $fromUrl=urlencode($from);
 $toUrl=urlencode($to);
 $tracker=urlencode("[$id_tracker]");
@@ -109,12 +110,14 @@ if (isset($json->id)) {
 
     echo "$id_tracker,$patente,$id_servicio,$servicio,$chofer,$from,$to,$duration,$in_movement,$idle <br>";
 
+    $QRY="INSERT INTO `masgps`.`ralenti` ( `contrato`, `id_tracker`, `patente`, `chofer`, `id_servicio`, `servicio`, `from`, `to`, `duration`, `in_movement`, `idle`, `fechaServicio`) VALUES 
+    ('ICT-002', '$id_tracker', '$patente', '$chofer', '$id_servicio', '$servicio', '$from', '$to', '$duration', '$in_movement', '$idle', '$fecha_servicio_formateada')";
+  
+      
+       $res= mysqli_query($mysqli,$QRY);
+
   }
 }
-  $QRY="INSERT INTO `masgps`.`ralenti` ( `contrato`, `id_tracker`, `patente`, `chofer`, `id_servicio`, `servicio`, `from`, `to`, `duration`, `in_movement`, `idle`, `fechaServicio`) VALUES 
-  ('ICT-002', '$id_tracker', '$patente', '$chofer', '$id_servicio', '$servicio', '$from', '$to', '$duration', '$in_movement', '$idle', '$fecha_servicio_formateada')";
 
-    
-     $res= mysqli_query($mysqli,$QRY);
 
   
