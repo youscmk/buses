@@ -4,7 +4,7 @@ $user="losBronces";
 
 $pasw="123";
 
-include "/login/conexion.php";
+include "login/conexion.php";
 
 $consulta="SELECT hash FROM masgps.hash where user='$user' and pasw='$pasw'";
 
