@@ -1,18 +1,29 @@
 <?php
 
 
-
-$hash="2a70f7d4f35c2bdf7435cabd14640ae1";
+$fromUrl=urlencode($from);
+$toUrl=urlencode($to);
+$tracker=urlencode("[$id_tracker]");
+$speedLimited="55";
 $title=urlencode('Informe de violación de velocidad');
-$trackers=10196494;
-$from=urlencode('2023-01-03 00:00:00');
-$to=urlencode('2023-01-03 23:59:59');
+$trackers=urlencode('['.$id_tracker.']');
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
-$plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":27,"show_seconds":false,"min_duration_minutes":1,"max_speed":50,"group_by_driver":false,"filter":true}');
+$plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":7,"show_seconds":false,"show_detailed":false,"include_summary_sheet_only":false,"filter":true}');
 
-$cadena='hash='.$hash.'&title='.$title.'&trackers=%5B'.$trackers.'%5D&from='.$from.'&to='.$to.'&time_filter='.$time_filter.'&plugin='.$plugin;
+$cadena='hash='.$hash.'&title='.$title.'&trackers='.$trackers.'&from='.$fromUrl.'&to='.$toUrl.'&time_filter='.$time_filter.'&plugin='.$plugin;
 
-echo"<br>";
+
+// $hash="2a70f7d4f35c2bdf7435cabd14640ae1";
+// $title=urlencode('Informe de violación de velocidad');
+// $trackers=10196494;
+// $from=urlencode('2023-01-03 00:00:00');
+// $to=urlencode('2023-01-03 23:59:59');
+// $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
+// $plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":27,"show_seconds":false,"min_duration_minutes":1,"max_speed":50,"group_by_driver":false,"filter":true}');
+
+// $cadena='hash='.$hash.'&title='.$title.'&trackers=%5B'.$trackers.'%5D&from='.$from.'&to='.$to.'&time_filter='.$time_filter.'&plugin='.$plugin;
+
+// echo"<br>";
 
 
 
