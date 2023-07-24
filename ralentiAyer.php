@@ -94,7 +94,7 @@ foreach ($array as $item){
     
 
   
-    include "./patronRalenti.php";
+    include "patronRalenti.php";
     
     if(isset($total)){
 
