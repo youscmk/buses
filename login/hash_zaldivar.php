@@ -2,7 +2,11 @@
 
 include "login-zaldivar.php";
 
-$hash=$cap;
+$hashZaldivar=$cap;
+
+include "login-pullman.php";
+
+$hashPullman=$cap;
 
 date_default_timezone_set("America/Santiago");
 
@@ -13,10 +17,12 @@ include "conexion.php";
 
 
   
-  $qry="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hash' WHERE (`id` = '4');";
+  $qryZal="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashZaldivar' WHERE (`id` = '4');";
 
-  $resutaldo3 = mysqli_query($mysqli, $qry);
+  $resutaldo3 = mysqli_query($mysqli, $qryZal);
 
+  $qryPull="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashPullman' WHERE (`id` = '5');";
 
+  $resutaldo3 = mysqli_query($mysqli, $qryPull);
 
 ?>
