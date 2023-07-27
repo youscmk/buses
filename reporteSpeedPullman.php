@@ -102,7 +102,14 @@ $datos=json_decode($response);
 //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
 //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
 
+Loop :
+
+if(isset($datos->report->sheets)){
+
+
 $vehiculos=$datos->report->sheets ;
+
+
 
 foreach ($vehiculos as $tracker){
 
@@ -135,6 +142,10 @@ foreach ($vehiculos as $tracker){
     }
 
     
+}
+} else{
+
+  goto Loop ;
 }
 
 
