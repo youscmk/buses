@@ -60,7 +60,9 @@ traerDatos :
 
 //$reporte=1447205;
 
-sleep(30);
+Loop :
+
+sleep(10);
 
 
 $curl = curl_init();
@@ -87,6 +89,7 @@ curl_setopt_array($curl, array(
   ),
 ));
 
+echo 
 $response = curl_exec($curl);
 
 curl_close($curl);
@@ -102,7 +105,7 @@ $datos=json_decode($response);
 //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
 //$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
 
-Loop :
+
 
 if(isset($datos->report->sheets)){
 
