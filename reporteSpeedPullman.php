@@ -21,7 +21,7 @@ $hoy = date("Y-m-d");
 
 $ayer=date('Y-m-d',strtotime("-1 days"));
 
-goto traerDatos;
+//goto traerDatos;
 
 include "listadoPullman.php";
 
@@ -58,9 +58,9 @@ $reporte=$arreglo->id;
 
 traerDatos :
 
-$reporte=1447205;
+//$reporte=1447205;
 
-sleep(20);
+sleep(30);
 
 
 $curl = curl_init();
