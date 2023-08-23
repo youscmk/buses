@@ -53,7 +53,7 @@ $json = json_decode($response2);
 
 $array = $json->list;
 
-header("refresh:30");
+Loop :
 
 foreach ($array as $item) {
 
@@ -134,3 +134,7 @@ foreach ($array as $item) {
      echo " creado <br>";
    }
 }
+
+sleep(20);
+
+goto Loop; 
