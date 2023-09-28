@@ -16,26 +16,18 @@
             font-family: sans-serif;
             max-width: 430px;
             height: 932px;
-            position: relative;
             margin: auto;
-            color: #CB9C00;
 
         }
         #logo {
            
             height: 150px;
-         
             text-align: center;
-            
-     
-            
-
+        
         }
         #help {
           
-           
             height: 100px;
-           
             text-align: center;
         }
 
@@ -44,24 +36,19 @@
         #telefono {
           
             height: 260px;
-        
             text-align: center;
-     ;
+     
         }
 
         #horario {
  
             height: 50px;
-          
             text-align: center;
           
-           
-           
-
         }
         #horario p {
             height: 50px;
-            text-align: center;
+            margin: auto;
         }
     </style>
 </head>
