@@ -21,7 +21,8 @@ while($data=mysqli_fetch_array($resutaldo)){
        'patente'=>$data['patente'],
        'direccion'=> $dir ,
        'coord'=>[
-       'lat'=>$data['latitud'],'lng'=>$data['longitud']
+       'lat'=>floatval($data['latitud']),
+       'lng'=>floatval($data['longitud'])
        ]
     
     
