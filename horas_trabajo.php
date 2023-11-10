@@ -1,5 +1,7 @@
 <?php
 
+/*nome acordaba como se hacen los commit ctm*/
+
 include "./login/login.php";
 echo"<br>";
 include "./listadoBusesHorasMotor.php";
