@@ -8,7 +8,7 @@
 
 function manejo($user,$pasw,$ayer){
 
-  include "../login/conexion.php";
+  include "login/conexion.php";
 
 $consulta="SELECT hash FROM masgps.hash where user='$user' and pasw='$pasw'";
 
