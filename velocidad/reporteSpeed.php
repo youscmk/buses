@@ -24,7 +24,7 @@ date_default_timezone_set("America/Santiago");
 
 $hoy = date("Y-m-d");
 
-$ayer=date('Y-m-d',strtotime("-4 days"));
+$ayer=date('Y-m-d',strtotime("-1 days"));
 
 //goto traerDatos;
 
