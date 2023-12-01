@@ -1,5 +1,25 @@
 <?php 
 
+include "login-Araucania.php";
+echo "<br>";
+$hashAraucania=$cap;
+
+include "login-particulares.php";
+echo "<br>";
+$hashParticulares=$cap;
+
+include "login-vina.php";
+echo "<br>";
+$hashVina=$cap;
+
+include "login-ingegroup.php";
+echo "<br>";
+$hashIngegroup=$cap;
+
+include "login-lascondes.php";
+echo "<br>";
+$hashLasCondes=$cap;
+
 include "login-zaldivar.php";
 echo "<br>";
 $hashZaldivar=$cap;
@@ -32,5 +52,26 @@ include "conexion.php";
   $qryLosBronces="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashLosBronces' WHERE (`id` = '3');";
 
   $resutaldo4 = mysqli_query($mysqli, $qryLosBronces);
+
+  $qryLasCondes="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashLasCondes' WHERE (`id` = '6');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryLasCondes);
+
+  $qryIngegroup="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashIngegroup' WHERE (`id` = '7');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryIngegroup);
+
+  $qryVina="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashVina' WHERE (`id` = '8');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryVina);
+
+  $qryParticulares="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashParticulares' WHERE (`id` = '9');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryParticulares);
+
+
+  $qryAraucania="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashAraucania' WHERE (`id` = '10');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryAraucania);
 
 ?>
