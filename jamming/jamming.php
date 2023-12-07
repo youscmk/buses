@@ -1,14 +1,12 @@
 <?php
 
-//$user="IngeGroup";
-
-//$pasw="123";
 
 
+$user="Particulares";
 
-function Speed($user,$pasw){
 
-  
+$pasw="123";
+
 include "conexion.php";
 
 $consulta="SELECT hash FROM masgps.hash where user='$user' and pasw='$pasw'";
@@ -26,9 +24,8 @@ $hoy = date("Y-m-d");
 
 $ayer=date('Y-m-d',strtotime("-1 days"));
 
-//goto traerDatos;
 
-include "listadoSpeed.php";
+include "listado.php";
 
 $curl = curl_init();
 
@@ -41,13 +38,13 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'hash='.$hash.'&title=Informe%20de%20violaci%C3%B3n%20de%20velocidad&trackers='.$ids.'&from='.$ayer.'%2000%3A00%3A00&to='.$ayer.'%2023%3A59%3A59&time_filter=%7B%22from%22%3A%2200%3A00%22%2C%22to%22%3A%2223%3A59%22%2C%22weekdays%22%3A%5B1%2C2%2C3%2C4%2C5%2C6%2C7%5D%7D&plugin=%7B%22hide_empty_tabs%22%3Atrue%2C%22plugin_id%22%3A27%2C%22show_seconds%22%3Afalse%2C%22min_duration_minutes%22%3A1%2C%22max_speed%22%3A100%2C%22group_by_driver%22%3Afalse%2C%22filter%22%3Atrue%7D',
+  CURLOPT_POSTFIELDS =>'hash='.$hash.'&title=Informe%20de%20evento&trackers='.$ids.'&from='.$ayer.'%2000%3A00%3A00&to='.$ayer.'%2023%3A59%3A59&time_filter=%7B%22from%22%3A%2200%3A00%22%2C%22to%22%3A%2223%3A59%22%2C%22weekdays%22%3A%5B1%2C2%2C3%2C4%2C5%2C6%2C7%5D%7D&plugin=%7B%22hide_empty_tabs%22%3Atrue%2C%22plugin_id%22%3A11%2C%22show_seconds%22%3Afalse%2C%22group_by_type%22%3Afalse%2C%22event_types%22%3A%5B%22output_change%22%5D%7D',
   CURLOPT_HTTPHEADER => array(
     'Accept: */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
     'Connection: keep-alive',
     'Content-Type: application/x-www-form-urlencoded; charset=UTF-8',
-    'Cookie: _ga=GA1.2.728367267.1665672802; session_key=313bcf73d4cab8b8934bae1556b273e2; _gid=GA1.2.1549217858.1690386194; locale=es; check_audit=313bcf73d4cab8b8934bae1556b273e2; _ga_XXFQ02HEZ2=GS1.2.1690401308.12.1.1690401317.0.0.0',
+    'Cookie: _ga=GA1.2.728367267.1665672802; session_key=313bcf73d4cab8b8934bae1556b273e2; _gid=GA1.2.1549217858.1690386194; locale=es; check_audit=313bcf73d4cab8b8934bae1556b273e2; _ga_XXFQ02HEZ2=GS1.2.1690386195.11.1.1690386280.0.0.0',
     'Origin: http://www.trackermasgps.com',
     'Referer: http://www.trackermasgps.com/pro/applications/reports/index.html?newuiwrap=1',
     'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
@@ -58,16 +55,26 @@ $response = curl_exec($curl);
 
 curl_close($curl);
 echo $response;
+
+
+
 $arreglo=json_decode($response);
+
+
+
+
+
+echo 
 $reporte=$arreglo->id;
 
-traerDatos :
 
-//$reporte=1447205;
+
 
 Loop :
 
 sleep(10);
+
+
 
 
 $curl = curl_init();
@@ -93,75 +100,74 @@ curl_setopt_array($curl, array(
     'User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36'
   ),
 ));
-
- 
+echo 
 $response = curl_exec($curl);
 
 curl_close($curl);
 
 $datos=json_decode($response);
 
-//$.report.sheets[0].header
-//$.report.sheets[0].entity_ids
+//print_r($datos);
 
-//$.report.sheets[0].sections[1].data[0].rows[0].duration.v
-//$.report.sheets[0].sections[1].data[0].rows[0].start_time.v
-//$.report.sheets[0].sections[1].data[0].rows[0].max_speed.v
-//$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
-//$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
 
-//{"status":{"code":229,"description":"Requested data is not ready yet"},"success":false}
+//$.report.sheets[0].sections[0].data[0].rows[0].address.location.lat
+//$.report.sheets[0].sections[0].data[0].rows[0].address.location.lng
+//$.report.sheets[0].sections[0].data[0].rows[0].address.location.address
+//$.report.sheets[0].sections[0].data[0].rows[0].time.v
+//$.report.sheets[0].sections[0].data[0].rows[0].event.v
+
 
 if(isset($datos->report->sheets)){
+ $trackers=$datos->report->sheets;
+ 
 
+  if ($trackers[0]->header<>"No hay datos"){
 
-$vehiculos=$datos->report->sheets ;
+ foreach ($trackers as $tracker){
 
-
-
-foreach ($vehiculos as $tracker){
-
-    echo
-    $pat=$tracker->header ;
-    echo "<br>";
-    $id_tracker=$tracker->entity_ids[0];
-
-    $eventos=$tracker->sections[1]->data[0]->rows; 
-
-    foreach($eventos as $evento){
-
-        $start_time=$evento->start_time->v;
-
-        $duration=$evento->duration->v;
-         
-        $max_speed=$evento->max_speed->v;
-        
-        $lat=$evento->max_speed_address->location->lat;
-
-        $lng=$evento->max_speed_address->location->lng;
-        
-        //$txt="'$id_tracker', '$pat', '$ayer', '$start_time', '$duration', '$max_speed', '$lat', '$lng'";
-        
-        $Qry="INSERT INTO `masgps`.`SpeedReport` (`contrato`, `id_tracker`, `patente`, `fecha`, `start_time`, `duration`, `max_speed`, `lat`, `lng`) 
-        VALUES ('$user', '$id_tracker', '$pat', '$ayer', '$start_time', '$duration', '$max_speed', '$lat', '$lng');
-        ";
+          Echo
+          $pat=$tracker->header ;
+          $id=$tracker->entity_ids[0] ;
        
-        $ejecutar = mysqli_query($mysqli, $Qry);
+
+         $items=$tracker->sections[0]->data[0]->rows;
 
 
-    }
+         foreach ($items as $item){
+            
+            if($item->event->v='Inicio Detección de Jamming'){
 
-    
-}
-} else{
+             $evento=$item->event->v ;
+           
+             $fecha=$item->time->v ;
 
-  echo $response;
-  goto Loop ;
-}
+             $objeto_fecha_hora = DateTime::createFromFormat('d/m/Y H:i', $fecha);
+             $fecha_hora_formateada = $objeto_fecha_hora->format('Y-m-d H:i');
 
-}
+             $lat=$item->address->location->lat;
+             $lng=$item->address->location->lng;
+             
+              echo
+             $Q_insert="INSERT INTO `masgps`.`jamming` (`id_tracker`, `patente`, `evento`, `fecha`, `lat`, `lng`) VALUES ('$id', '$pat', '$evento', '$fecha_hora_formateada', '$lat', '$lng')";
+
+            
+             //$ejecutar = mysqli_query($mysqli, $Q_insert);
 
 
+             }
 
 
+            }
+            
+         }
 
+        }else{
+          echo $trackers[0]->header;
+        }
+
+        }else {
+          
+          goto Loop;
+        }
+
+ fin:

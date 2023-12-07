@@ -9,7 +9,7 @@
 function ralenti($user,$pasw){
    
 
-include "login/conexion.php";
+include "conexion.php";
 
 $consulta="SELECT hash FROM masgps.hash where user='$user' and pasw='$pasw'";
 
