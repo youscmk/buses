@@ -114,8 +114,8 @@ $datos=json_decode($response);
       $patente=$evento->object->v;
       $idle_duration=$evento->idle_duration->v;
 
-  
-       echo
+      echo "$patente - ";
+      
         $Qry="INSERT INTO `masgps`.`kilometraje` (`cuenta`, `avg_speed`, `patente`, `fecha`, `count`, `max_speed`, `time`, `idle_duration`, `length`) 
         VALUES ('$user', '$avg_speed', '$patente', '$ayer', '$count', '$max_speed', '$time', '$idle_duration', '$length');
        ";
