@@ -1,7 +1,6 @@
 <?php
 
 function reporteKM($user,$pasw){
-
 include "conexion.php";
 
 $consulta="SELECT hash FROM masgps.hash where user='$user' and pasw='$pasw'";
@@ -17,7 +16,7 @@ date_default_timezone_set("America/Santiago");
 
 $hoy = date("Y-m-d");
 
-$ayer=date('Y-m-d',strtotime("-4 days"));
+$ayer=date('Y-m-d',strtotime("-1 days"));
 
 //goto traerDatos;
 
@@ -99,10 +98,10 @@ curl_close($curl);
 
 $datos=json_decode($response);
 
- 
-    if(isset($datos->success)){
+ //$datos->success
+    if(isset($datos->report->sheets[0]->sections[0]->data[0]->rows)){
 
-    $eventos=$datos->report->sheets[0]->sections[0]->data[0]->rows; 
+    $eventos=$datos->report->sheets[0]->sections[0]->data[0]->rows;
 
     foreach($eventos as $evento){
 
