@@ -1,5 +1,9 @@
 <?php 
 
+include "login-ventana.php";
+echo "<br>";
+$hashVentana=$cap;
+
 include "login-Araucania.php";
 echo "<br>";
 $hashAraucania=$cap;
@@ -73,5 +77,9 @@ include "conexion.php";
   $qryAraucania="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashAraucania' WHERE (`id` = '10');";
 
   $resutaldo4 = mysqli_query($mysqli, $qryAraucania);
+
+  $qryVentana="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashVentana' WHERE (`id` = '11');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryVentana);
 
 ?>
