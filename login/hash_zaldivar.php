@@ -36,6 +36,10 @@ include "login-bronces.php";
 echo "<br>";
 $hashLosBronces=$cap;
 
+include "login-camera.php";
+echo "<br>";
+$hashCamera=$cap;
+
 date_default_timezone_set("America/Santiago");
 
 $time= date('Y-m-d H:i:s');
@@ -81,5 +85,9 @@ include "conexion.php";
   $qryVentana="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashVentana' WHERE (`id` = '11');";
 
   $resutaldo4 = mysqli_query($mysqli, $qryVentana);
+
+  $qryCamera="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashCamera' WHERE (`id` = '12');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryCamera);
 
 ?>

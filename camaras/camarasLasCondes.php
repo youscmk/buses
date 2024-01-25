@@ -52,7 +52,7 @@ $response = curl_exec($curl);
 
 curl_close($curl);
 
-//echo $response;
+
 
 
 $json = json_decode($response);
@@ -81,7 +81,7 @@ foreach ($array as $item) {
      CURLOPT_FOLLOWLOCATION => true,
      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
      CURLOPT_CUSTOMREQUEST => 'POST',
-     CURLOPT_POSTFIELDS =>'{"tracker_id":'.$id.',"cameras":["front_camera","inward_camera"],"hash":"838dd2ac3bc781a07abc8b9c74351380"}',
+     CURLOPT_POSTFIELDS =>'{"tracker_id":'.$id.',"cameras":["front_camera","inward_camera"],"hash":"'.$cap.'"}',
      CURLOPT_HTTPHEADER => array(
        'Accept: application/json, text/plain, */*',
        'Accept-Language: es-US,es-419;q=0.9,es;q=0.8',
