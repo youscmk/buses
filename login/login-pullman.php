@@ -11,7 +11,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS => '{"login":"monitoreogps@pullman.cl","password":"MonitoreoGPS","dealer_id":10004282,"locale":"es","hash":null}',
+  CURLOPT_POSTFIELDS => '{"login":"monitoreogps@pullman.cl","password":"2024_MonitoreoGPS","dealer_id":10004282,"locale":"es","hash":null}',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json, text/plain, */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
