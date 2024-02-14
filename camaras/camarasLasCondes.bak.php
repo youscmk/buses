@@ -105,57 +105,18 @@ foreach ($array as $item) {
     $front_camera=$arreglo->video_streams[1]->link;
     $inside_camera=$arreglo->video_streams[0]->link;
 
+   $json =array (
 
-
+    'patente'=>$patente,
+    'front'=>$front_camera,
+    'inside'=>$inside_camera
+ 
     
+  );
 
-    $curl = curl_init();
-    
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => 'http://www.trackermasgps.com/api-v2/tracker/get_state',
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => '',
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 0,
-      CURLOPT_FOLLOWLOCATION => true,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => 'POST',
-      CURLOPT_POSTFIELDS =>'{"hash": "'.$cap.'", "tracker_id": '.$id.'}',
-      CURLOPT_HTTPHEADER => array(
-        'Content-Type: application/json'
-      ),
-    ));
-    
-    $response2 = curl_exec($curl);
-    
-    $arreglo2= json_decode( $response2);
-    
-    curl_close($curl);
-    
-    $estado=$arreglo2->state->connection_status;
-    
-    if ($estado=="active"){
+    $total[$i]=$json;
 
-      $json =array (
-
-        'patente'=>$patente,
-        'front'=>$front_camera,
-        'inside'=>$inside_camera,
-        'estado'=>$estado
-    
-           
-      );
-      $total[$i]=$json;
-
-      $i++;
-
-
-    }
-    
-
-
-
-
+    $i++;
    }
    
    
