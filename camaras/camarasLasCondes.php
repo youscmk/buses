@@ -134,7 +134,7 @@ foreach ($array as $item) {
     
     $estado=$arreglo2->state->connection_status;
     
-    if ($estado=="active"){
+    
 
       $json =array (
 
@@ -150,7 +150,7 @@ foreach ($array as $item) {
       $i++;
 
 
-    }
+    
     
 
 
