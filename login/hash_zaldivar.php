@@ -36,6 +36,10 @@ include "login-bronces.php";
 echo "<br>";
 $hashLosBronces=$cap;
 
+include "login-mel.php";
+echo "<br>";
+$hashMel=$cap;
+
 include "login-camera.php";
 echo "<br>";
 $hashCamera=$cap;
@@ -86,8 +90,14 @@ include "conexion.php";
 
   $resutaldo4 = mysqli_query($mysqli, $qryVentana);
 
+
   $qryCamera="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashCamera' WHERE (`id` = '12');";
 
   $resutaldo4 = mysqli_query($mysqli, $qryCamera);
+
+  $qryMel="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashMel' WHERE (`id` = '13');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryMel);
+
 
 ?>
