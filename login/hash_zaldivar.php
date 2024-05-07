@@ -40,6 +40,10 @@ include "login-mel.php";
 echo "<br>";
 $hashMel=$cap;
 
+include "login-centinela.php";
+echo "<br>";
+$hashCentinela=$cap;
+
 include "login-camera.php";
 echo "<br>";
 $hashCamera=$cap;
@@ -98,6 +102,10 @@ include "conexion.php";
   $qryMel="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashMel' WHERE (`id` = '13');";
 
   $resutaldo4 = mysqli_query($mysqli, $qryMel);
+
+  $qryCentinela="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashCentinela' WHERE (`id` = '14');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryCentinela);
 
 
 ?>
