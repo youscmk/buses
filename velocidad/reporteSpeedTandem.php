@@ -25,7 +25,7 @@ function Speed($user, $pasw)
 
   $hoy = date("Y-m-d");
 
-  $ayer = date('Y-m-d', strtotime("-2 days"));
+  $ayer = date('Y-m-d', strtotime("-3 days"));
 
   //goto traerDatos;
 
