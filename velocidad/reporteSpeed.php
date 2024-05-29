@@ -94,7 +94,7 @@ curl_setopt_array($curl, array(
   ),
 ));
 
- 
+ echo
 $response = curl_exec($curl);
 
 curl_close($curl);
@@ -160,6 +160,7 @@ foreach ($vehiculos as $tracker){
 }
 
 }
+
 
 
 
