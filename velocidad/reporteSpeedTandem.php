@@ -5,6 +5,7 @@
 //$pasw="123";
 
 
+set_time_limit(1200);
 
 function Speed($user, $pasw)
 {
@@ -25,7 +26,7 @@ function Speed($user, $pasw)
 
   $hoy = date("Y-m-d");
 
-  $ayer = date('Y-m-d', strtotime("-3 days"));
+  $ayer = date('Y-m-d', strtotime("-1 days"));
 
   //goto traerDatos;
 
@@ -160,10 +161,11 @@ function Speed($user, $pasw)
         foreach ($eventos as $evento) {
 
           $direccion = $evento->max_speed_address->v;
+          $start_time = $evento->start_time->v;
 
           if (str_contains($direccion, 'Zona')) {
 
-            $start_time = $evento->start_time->v;
+            
 
             $duration = $evento->duration->v;
 
@@ -183,7 +185,10 @@ function Speed($user, $pasw)
         ";
 
             $ejecutar = mysqli_query($mysqli, $Qry);
+          }else {
+            echo " $ayer : $start_time Sin Datos de velocidad mayor a 55km con duracion de mas de  1 minuto en GeoZonas para la patente : $pat  <BR>";
           }
+
         }
       }
     } else {
