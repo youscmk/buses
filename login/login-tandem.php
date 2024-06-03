@@ -11,7 +11,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS => '{"login":"monitoreogps_tandem@tandem.cl","password":"MonitoreoTandem_2023","dealer_id":10004282,"locale":"es","hash":null}',
+  CURLOPT_POSTFIELDS => '{"login":"bi_pullman@masgps.com","password":"BI_2024","dealer_id":10004282,"locale":"es","hash":null}',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json, text/plain, */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',

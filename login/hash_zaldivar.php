@@ -4,6 +4,10 @@ include "login-ventana.php";
 echo "<br>";
 $hashVentana=$cap;
 
+include "login-tandem.php";
+echo "<br>";
+$hashTandem=$cap;
+
 include "login-Araucania.php";
 echo "<br>";
 $hashAraucania=$cap;
@@ -106,6 +110,11 @@ include "conexion.php";
   $qryCentinela="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashCentinela' WHERE (`id` = '14');";
 
   $resutaldo4 = mysqli_query($mysqli, $qryCentinela);
+
+  $qryTandem="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashTandem' WHERE (`id` = '15');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryCentinela);
+
 
 
 ?>
