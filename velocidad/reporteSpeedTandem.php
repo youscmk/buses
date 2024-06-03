@@ -58,7 +58,7 @@ function Speed($user, $pasw)
       CURLOPT_FOLLOWLOCATION => true,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => 'POST',
-      CURLOPT_POSTFIELDS => 'hash=' . $hash . '&title=Informe%20de%20violaci%C3%B3n%20de%20velocidad&trackers=' . $ids . '&from=' . $ayer . '%2000%3A00%3A00&to=' . $ayer . '%2023%3A59%3A59&time_filter=%7B%22from%22%3A%2200%3A00%22%2C%22to%22%3A%2223%3A59%22%2C%22weekdays%22%3A%5B1%2C2%2C3%2C4%2C5%2C6%2C7%5D%7D&plugin=%7B%22hide_empty_tabs%22%3Atrue%2C%22plugin_id%22%3A27%2C%22show_seconds%22%3Afalse%2C%22min_duration_minutes%22%3A1%2C%22max_speed%22%3A55%2C%22group_by_driver%22%3Afalse%2C%22filter%22%3Atrue%7D',
+      CURLOPT_POSTFIELDS => 'hash=' . $hash . '&title=Informe%20de%20violaci%C3%B3n%20de%20velocidad&trackers=' . $ids . '&from=' . $ayer . '%2000%3A00%3A00&to=' . $ayer . '%2023%3A59%3A59&time_filter=%7B%22from%22%3A%2200%3A00%22%2C%22to%22%3A%2223%3A59%22%2C%22weekdays%22%3A%5B1%2C2%2C3%2C4%2C5%2C6%2C7%5D%7D&plugin=%7B%22hide_empty_tabs%22%3Atrue%2C%22plugin_id%22%3A27%2C%22show_seconds%22%3Atrue%2C%22min_duration_minutes%22%3A1%2C%22max_speed%22%3A50%2C%22group_by_driver%22%3Afalse%2C%22filter%22%3Atrue%7D',
 
       CURLOPT_HTTPHEADER => array(
         'Accept: */*',
