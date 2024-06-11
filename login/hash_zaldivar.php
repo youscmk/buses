@@ -9,6 +9,10 @@ include "login-tandem.php";
 echo "<br>";
 $hashTandem=$cap;
 
+include "login-piloto-integral.php";
+echo "<br>";
+$hashPiloto=$cap;
+
 include "login-Araucania.php";
 echo "<br>";
 $hashAraucania=$cap;
@@ -114,7 +118,11 @@ include "conexion.php";
 
   $qryTandem="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashTandem' WHERE (`id` = '15');";
 
-  $resutaldo4 = mysqli_query($mysqli, $qryCentinela);
+  $resutaldo4 = mysqli_query($mysqli, $qryTandem);
+
+  $qryPiloto="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashPiloto' WHERE (`id` = '16');";
+
+  $resutaldo4 = mysqli_query($mysqli, $qryPiloto);
 
 
 

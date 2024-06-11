@@ -11,7 +11,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS => '{"login":"ti.contador@masgps.com","password":"Contador24","dealer_id":10004282,"locale":"es","hash":null}',
+  CURLOPT_POSTFIELDS => '{"login":"proyecto_integral@masgps.com","password":"Integral_2024","dealer_id":10004282,"locale":"es","hash":null}',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json, text/plain, */*',
     'Accept-Language: es-419,es;q=0.9,en;q=0.8',
@@ -30,6 +30,6 @@ $response = curl_exec($curl);
 
 $json=json_decode($response);
 $cap= $json->hash;
-echo $cap;
+//echo $cap;
 
  curl_close($curl);
