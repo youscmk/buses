@@ -77,10 +77,14 @@ include "conexion.php";
   $qryLosBronces="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashLosBronces' WHERE (`id` = '3');";
 
   $resutaldo4 = mysqli_query($mysqli, $qryLosBronces);
+  if($hashLasCondes){
 
-  $qryLasCondes="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashLasCondes' WHERE (`id` = '6');";
+    $qryLasCondes="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashLasCondes' WHERE (`id` = '6');";
 
-  $resutaldo4 = mysqli_query($mysqli, $qryLasCondes);
+    $resutaldo4 = mysqli_query($mysqli, $qryLasCondes);
+
+  }
+ 
 
   $qryIngegroup="UPDATE `masgps`.`hash` SET `timestamp` = '$time', `hash` = '$hashIngegroup' WHERE (`id` = '7');";
 
