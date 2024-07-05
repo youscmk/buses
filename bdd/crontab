@@ -1,0 +1,38 @@
+5 5 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/lascondes.php
+15 5 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/paraguay.php
+20 5 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/vina.php
+25 5 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/ingegroup.php
+30 5 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/particulares.php
+35 5 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/login/hash_zaldivar.php
+40 */3 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/pullman.php
+
+5 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/ralenti/RalentiAraucania.php
+10 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/ralenti/RalentiIngeGroup.php
+15 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/ralenti/RalentiLasCondes.php
+20 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/ralenti/RalentiParticulares.php
+25 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/ralenti/RalentiVina.php
+
+30 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/velocidad/SpeedAraucania.php
+35 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/velocidad/SpeedParticulares.php
+40 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/velocidad/SpeedVina.php
+45 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/velocidad/SpeedIngeGroup.php
+
+
+50 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/manejoBrusco/manejoBruscoLasCondes.ph
+p
+55 7 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/manejoBrusco/manejoBruscoVina.php
+05 8 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/manejoBrusco/manejoBruscoParticulares
+.php
+10 8 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/manejoBrusco/manejoBruscoIngeGroup.ph
+p
+15 8 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/manejoBrusco/manejoBruscoAraucania.ph
+p
+
+00 9 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/LPF/lpfLasCondes.php
+05 9 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/LPF/lpfVina.php
+10 9 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/LPF/lpfParticulares.php
+15 9 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/LPF/lpfIngeGroup.php
+20 9 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/LPF/lpfAraucania.php
+
+35 9 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/buses/velocidad/SpeedTandem.php
+00 11 * * * /opt/bitnami/php/bin/php /home/bitnami/htdocs/mov-no-auth/movimientos.php
