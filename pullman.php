@@ -1,4 +1,7 @@
 <?php
+
+set_time_limit(1200);
+
 include "login/login-pullman.php";
 include "login/conexion.php";
 
