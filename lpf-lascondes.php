@@ -97,8 +97,8 @@ foreach ($array as $item) {
 
   $ignicion=$json2->state->inputs[0];
 
-  include './odometro.php';
-  include './hmotor.php';
+  //include './odometro.php';
+  //include './hmotor.php';
 
 
 
@@ -117,8 +117,8 @@ foreach ($array as $item) {
       'signal_level'=>$signal_level,
       'movement_status'=>$movement_status,
       'ignicion'=>$ignicion,
-      'odometro'=>$odometro,
-      'Hmotor'=>$hmotor,
+     // 'odometro'=>$odometro,
+     // 'Hmotor'=>$hmotor,
   
       'ultima-conexion'=>$last_u
       
