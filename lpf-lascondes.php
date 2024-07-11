@@ -2,7 +2,7 @@
 //include "./login/login-lascondes.php";
 // include "login/conexion.php";
 
-require_once './login/login-lascondes.php';
+require_once './login/login-lascondesm.php';
 
 
 //header("refresh:2");
